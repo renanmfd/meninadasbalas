@@ -25,6 +25,7 @@
         "drupal/advagg": "^2.4",
         "drupal/auto_entitylabel": "^2.0@beta",
         "drupal/bootstrap": "^3.5",
+        "drupal/color_field": "^1.0",
         "drupal/commerce": "^2.0@beta",
         "drupal/commerce_paypal": "1.x-dev",
         "drupal/commerce_shipping": "^2.0@beta",
