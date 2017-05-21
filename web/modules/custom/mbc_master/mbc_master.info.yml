@@ -1,0 +1,7 @@
+name: MBC Master
+type: module
+description: 'General custom features for MBC Website'
+core: 8.x
+package: MBC
+dependencies:
+  - image
