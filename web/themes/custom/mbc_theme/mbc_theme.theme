@@ -7,29 +7,6 @@
  */
 
 /**
- * Implements TEMPLATE_menu_link__MENU().
- */
-function mbc_theme_menu_link__topbar_contact($vars) {
-  ksm($vars);
-  $element = $vars['element'];
-  $sub_menu = '';
-  $element['#localized_options']['html'] = TRUE;
-
-  if ($element ['#below']) {
-    $sub_menu = drupal_render($element['#below']);
-  }
-
-  $icon = '';
-  if (!empty($element['#attributes']['rel'])) {
-    $size = isset($vars['#icon_size']) ? $vars['#icon_size'] : 15;
-    $icon = mbc_get_icon($element['#attributes']['rel'], $size);
-  }
-
-  $output = l($icon . $element['#title'], $element['#href'], $element['#localized_options']);
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}
-
-/**
  * Custom function to get SVG icons with fallback, assisted by a template.
  */
 function mbc_get_icon($name, $size = 32) {
@@ -37,7 +14,7 @@ function mbc_get_icon($name, $size = 32) {
   $svg = '';
   $png = "$basePath/images/icon/png/default.png";
   
-  $svgFile = file_get_contents("$basePath/images/icons/svg/$name.svg");
+  $svgFile = file_get_contents("$basePath/img/icons/svg/$name.svg");
   if ($svgFile != FALSE) {
     $svg = preg_replace(
       ['/width="\d*"/', '/height="\d*"/'],
@@ -46,7 +23,7 @@ function mbc_get_icon($name, $size = 32) {
     );
     
     $pngPath = "$basePath/images/icons/png/$name.png";
-    if (file_exists($pngPath)) {
+    if (!file_exists($pngPath)) {
       $png = $pngPath;
     }
   }
@@ -60,6 +37,18 @@ function mbc_get_icon($name, $size = 32) {
 }
 
 /**
+ * Implements hook_preprocess_THEME().
+ */
+function mbc_theme_preprocess_commerce_cart_block(&$vars) {
+  $vars['icon'] = mbc_get_icon('shopping-cart', 30);
+}
+
+function mbc_theme_preprocess_commerce_product(&$vars) {
+  $config = \Drupal::config('system.site');
+  $vars['site']['name'] = $config->get('name');
+}
+
+/**
  * Implements hook_theme().
  */
 function mbc_theme_theme($existing, $type, $theme, $path) {
@@ -67,9 +56,9 @@ function mbc_theme_theme($existing, $type, $theme, $path) {
     'bc_icon' => [
       'variables' => [
         'name' => '',
-        'svg' => NULL,
+        'svg' => '',
         'png' => '',
-        'size' => ''
+        'size' => 50
       ],
     ],
   ];
