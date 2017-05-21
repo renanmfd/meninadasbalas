@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *                                                                                                                                          
+ * @ingroup themeable
+ */
+#}
+
+{% set classes = ['product', 'product-card'] %}
+<div{{ attributes.addClass(classes) }} itemscope itemtype="http://schema.org/Product">
+  <span class="hidden" itemprop="brand">{{ site.name }}</span>
+  <div class="product-image {{ product.title['#bundle'] }}">
+    {{ product.variation_field_imagem }}
+  </div>
+  <div class="product-info">
+    <h3 class="product-title" itemprop="name">{{ product.title }}</h3>
+    <div class="product-price">
+      {{ product.field_recheio }}
+      {{ product.variation_field_sabor }}
+    </div>
+    <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      {{ product.variation_price }}
+    </div>
+    <div class="product-addtocart">
+      {{ product.variations }}
+    </div>
+  </div>
+</div>

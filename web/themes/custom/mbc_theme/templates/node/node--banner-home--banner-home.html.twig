@@ -85,8 +85,8 @@
 
   <div{{ content_attributes.addClass('content') }}>
     {% if not page %}
-      <h2{{ title_attributes }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      <h2{{ title_attributes.addClass('banner-title') }}>
+        {{ label }}
       </h2>
     {% endif %}
 
