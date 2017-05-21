@@ -5,3 +5,72 @@
  *
  * Place your custom PHP code in this file.
  */
+
+/**
+ * Implements TEMPLATE_menu_link__MENU().
+ */
+function mbc_theme_menu_link__topbar_contact($vars) {
+  ksm($vars);
+  $element = $vars['element'];
+  $sub_menu = '';
+  $element['#localized_options']['html'] = TRUE;
+
+  if ($element ['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+
+  $icon = '';
+  if (!empty($element['#attributes']['rel'])) {
+    $size = isset($vars['#icon_size']) ? $vars['#icon_size'] : 15;
+    $icon = mbc_get_icon($element['#attributes']['rel'], $size);
+  }
+
+  $output = l($icon . $element['#title'], $element['#href'], $element['#localized_options']);
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+/**
+ * Custom function to get SVG icons with fallback, assisted by a template.
+ */
+function mbc_get_icon($name, $size = 32) {
+  $basePath = drupal_get_path('theme', 'mbc_theme');
+  $svg = '';
+  $png = "$basePath/images/icon/png/default.png";
+  
+  $svgFile = file_get_contents("$basePath/images/icons/svg/$name.svg");
+  if ($svgFile != FALSE) {
+    $svg = preg_replace(
+      ['/width="\d*"/', '/height="\d*"/'],
+      ["width=\"$size\"", "height=\"$size\""],
+      $svgFile
+    );
+    
+    $pngPath = "$basePath/images/icons/png/$name.png";
+    if (file_exists($pngPath)) {
+      $png = $pngPath;
+    }
+  }
+  return [
+    '#theme' => 'bc_icon',
+    '#name' => $name,
+    '#svg' => $svg,
+    '#png' => $png,
+    '#size' => $size,
+  ];
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mbc_theme_theme($existing, $type, $theme, $path) {
+  return [
+    'bc_icon' => [
+      'variables' => [
+        'name' => '',
+        'svg' => NULL,
+        'png' => '',
+        'size' => ''
+      ],
+    ],
+  ];
+}

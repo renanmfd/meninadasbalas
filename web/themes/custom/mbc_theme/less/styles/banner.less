@@ -1,0 +1,17 @@
+// main: ../style.less
+
+//.vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)
+
+#banner {
+  article.banner-home {
+    position: relative;
+  }
+  .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 50px 20px 10px 20px;
+    #gradient .vertical(transparent, rgba(255, 255, 255, 0.7), 0%, 50%);
+  }
+}

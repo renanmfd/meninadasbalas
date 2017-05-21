@@ -7,15 +7,17 @@ description: 'Uses the jsDelivr CDN for all CSS and JavaScript. No source files 
 package: 'Bootstrap'
 
 regions:
+  topbar: 'Top Bar'
   navigation: 'Navigation'
-  navigation_collapsible: 'Navigation (Collapsible)'
-  header: 'Top Bar'
+  banner: 'Banner'
+  header: 'Content Top'
   highlighted: 'Highlighted'
   help: 'Help'
   content: 'Content'
   sidebar_first: 'Primary'
   sidebar_second: 'Secondary'
   footer: 'Footer'
+  bottombar: 'Bottom Bar'
   page_top: 'Page top'
   page_bottom: 'Page bottom'
 
