@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b165d2ad9de6c25261e2f5461d4bd4b5",
+    "content-hash": "532a735f42da80fbe0cf43f519cd5993",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1893,7 +1893,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/commerce_shipping-8.x-2.0-beta2.zip",
-                "reference": null,
+                "reference": "8.x-2.0-beta2",
                 "shasum": "2549c079f275bccaaff7e7f8d6b504de951c9940"
             },
             "require": {
@@ -2422,6 +2422,61 @@
             "time": "2017-05-03T17:12:42+00:00"
         },
         {
+            "name": "drupal/crop",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/crop",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/crop-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "0ad542254940c844f8a22c1b386131f06c665b4f"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/media_entity": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1491032884"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "woprrr",
+                    "homepage": "https://www.drupal.org/user/858604"
+                }
+            ],
+            "description": "Provides storage and API for image crops.",
+            "homepage": "https://www.drupal.org/project/crop",
+            "support": {
+                "source": "http://cgit.drupalcode.org/crop",
+                "issues": "https://www.drupal.org/project/issues/crop"
+            }
+        },
+        {
             "name": "drupal/ctools",
             "version": "3.0.0",
             "source": {
@@ -2762,6 +2817,53 @@
             }
         },
         {
+            "name": "drupal/focal_point",
+            "version": "1.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/focal_point",
+                "reference": "8.x-1.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/focal_point-8.x-1.0-beta4.zip",
+                "reference": "8.x-1.0-beta4",
+                "shasum": "5c196948872af0621f1004d07c7d5aec583c11db"
+            },
+            "require": {
+                "drupal/core": "*",
+                "drupal/crop": "^1.0.0-alpha2"
+            },
+            "require-dev": {
+                "drupal/crop": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta4",
+                    "datestamp": "1479749360"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "bleen",
+                    "homepage": "https://www.drupal.org/user/77375"
+                }
+            ],
+            "description": "Allows users to specify the focal point of an image for use during cropping.",
+            "homepage": "https://www.drupal.org/project/focal_point",
+            "support": {
+                "source": "http://cgit.drupalcode.org/focal_point"
+            }
+        },
+        {
             "name": "drupal/inline_entity_form",
             "version": "1.0.0-beta1",
             "source": {
@@ -2821,6 +2923,49 @@
             "homepage": "https://www.drupal.org/project/inline_entity_form",
             "support": {
                 "source": "http://cgit.drupalcode.org/inline_entity_form"
+            }
+        },
+        {
+            "name": "drupal/link_attributes",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/link_attributes",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.0.zip",
+                "reference": null,
+                "shasum": "8a5851467f17c01b4dcb6e446f00cd7abe116475"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1481849583"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                }
+            ],
+            "description": "Provides a widget to allow settings of link attributes for menu links.",
+            "homepage": "https://www.drupal.org/project/link_attributes",
+            "support": {
+                "source": "http://cgit.drupalcode.org/link_attributes"
             }
         },
         {
@@ -7816,7 +7961,8 @@
         "drupal/commerce": 10,
         "drupal/commerce_paypal": 20,
         "drupal/commerce_shipping": 10,
-        "drupal/devel": 5
+        "drupal/devel": 5,
+        "drupal/focal_point": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
