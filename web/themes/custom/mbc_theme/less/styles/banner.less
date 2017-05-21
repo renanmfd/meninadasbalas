@@ -3,6 +3,8 @@
 //.vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)
 
 #banner {
+  background-image: url(../img/banner-bg.jpg);
+
   article.banner-home {
     position: relative;
   }
@@ -13,5 +15,13 @@
     width: 100%;
     padding: 50px 20px 10px 20px;
     #gradient .vertical(transparent, rgba(255, 255, 255, 0.7), 0%, 50%);
+  }
+  .banner-title {
+    font-size: 26px;
+    color: @color-primary-high;
+  }
+  .sumario {
+    font-size: 18px;
+    color: @color-black;
   }
 }
