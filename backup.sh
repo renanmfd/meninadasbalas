@@ -8,7 +8,7 @@ DATE=$(date "+%Y-%m-%d-%H-%M-%S")
 mkdir -p backup/file
 mkdir -p backup/database
 
-echo $BASEPATH
+#echo $BASEPATH
 DUMPNAME="$SITENAME-$DATE.sql"
 cd "$BASEPATH/backup/database/"
 mysqldump -u$MYSQL_USER -p$MYSQL_PSWD $MYSQL_TABLE > $DUMPNAME
