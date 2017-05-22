@@ -1,0 +1,25 @@
+// main: ../style.less
+
+.view-homepage {
+  padding: 50px 0;
+
+  .view-header {
+    font-size: 26px;
+    font-family: @sec-font;
+    color: @color-primary-high;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+  }
+  .view-content {
+    .views-row {
+      border-right: 1px solid fade(@color-complement, 30%);
+      
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}

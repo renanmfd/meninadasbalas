@@ -20,23 +20,35 @@
  */
 #}
 
-{% set classes = ['product', 'product-card'] %}
+{% set classes = ['product', 'product-card', product.title['#bundle']] %}
+{% set title = product.title|render|striptags|trim|raw %}
 <div{{ attributes.addClass(classes) }} itemscope itemtype="http://schema.org/Product">
-  <span class="hidden" itemprop="brand">{{ site.name }}</span>
-  <div class="product-image {{ product.title['#bundle'] }}">
-    {{ product.variation_field_imagem }}
+  <div class="metadata hidden">
+    <span itemprop="brand">{{ site.name }}</span>
+    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <span itemprop="price">
+        {{ product.variation_price|render|striptags|replace({',':'.', 'R$':'', '/kg': ''})|trim }}
+      </span>
+      <span itemprop="priceValidUntil" datetime="{{ site.valid }}"></span>
+      <span itemprop="priceCurrency">BRL</span>
+    </span>
   </div>
-  <div class="product-info">
-    <h3 class="product-title" itemprop="name">{{ product.title }}</h3>
-    <div class="product-price">
-      {{ product.field_recheio }}
-      {{ product.variation_field_sabor }}
+
+  <a href="{{ product_url }}" alt="Página do produto {{ title }}">
+    <div class="product-image">
+      {{ product.variation_field_imagem }}
     </div>
-    <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-      {{ product.variation_price }}
+
+    <div class="product-info">
+      <h3 class="product-title" itemprop="name">{{ product.title }}</h3>
+      <div class="product-price">
+        {{ product.variation_price }}
+      </div>
     </div>
-    <div class="product-addtocart">
-      {{ product.variations }}
-    </div>
+  </a>
+
+  <div class="product-addtocart">
+    {{ product.variations }}
   </div>
+
 </div>
