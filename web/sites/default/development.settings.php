@@ -87,9 +87,9 @@
  * @endcode
  */
  $databases['default']['default'] = array (
-  'database' => 'meninadasbalas',
-  'username' => 'meninadasbalas',
-  'password' => 'res2res2',
+  'database' => 'menin562_',
+  'username' => 'menin562_',
+  'password' => 'meninadasbalas',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
@@ -534,7 +534,7 @@ if ($settings['hash_salt']) {
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-# $settings['file_public_path'] = 'sites/default/files';
+$settings['file_public_path'] = 'sites/default/files';
 
 /**
  * Private file path:
@@ -549,7 +549,7 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+$settings['file_private_path'] = 'sites/default/files/private';
 
 /**
  * Session write interval:
@@ -679,9 +679,9 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs if you would like to alter this functionality.
  */
-# $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
-# $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
-# $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
+$config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
+$config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+$config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
  * Load services definition file.
@@ -742,6 +742,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+$settings['trusted_host_patterns'] = array(
+  '^meninadasbalas\.com\.br$',
+  '^.+\.meninadasbalas\.com\.br$',
+);
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -769,9 +773,9 @@ $settings['file_scan_ignore_directories'] = [
  * Keep this code block at the end of this file to take full effect.
  */
 #
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
-}
+# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+#   include $app_root . '/' . $site_path . '/settings.local.php';
+# }
 
 $config_directories['sync'] = $app_root . '/' . $site_path . '/files/config/sync';
 
