@@ -79,19 +79,26 @@
 
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes.addClass('sr-only') }}>
+    <h2{{ title_attributes.addClass('hidden') }}>
       {{ label }}
     </h2>
   {% endif %}
   {{ title_suffix }}
 
-  <div{{ content_attributes.addClass('content') }}>
-    {{ content }}
+  <div{{ content_attributes.addClass('content-wrapper') }}>
+    {{ content|without('field_produto') }}
+    
+    {% if display_submitted %}
+      <footer>
+        <div{{ author_attributes.addClass('author') }}>
+          {% trans %}De {{ author_name }} em {% endtrans %} {{ node.createdtime|date("d/m/Y") }}
+        </div>
+      </footer>
+    {% endif %}
   </div>
 
-  <footer>
-    <h3>{{ author_name }}</h3>
-    <span>em {{ node.createdtime|date("d/m/Y") }}</span>
-  </footer>
-
+  <div class="product-wrapper">
+    {{ content.field_produto }}
+  </div>
+  
 </article>

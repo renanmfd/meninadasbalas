@@ -5,6 +5,7 @@
   border: 2px solid @color-primary-low;
 
   a {
+    display: block;
     text-decoration: none;
 
     &:hover {
@@ -28,7 +29,7 @@
     }
   }
   .product-info {
-    padding: 10px;
+    padding: 10px 10px 50px 10px;
     background-color: @color-white;
     .transition(all .3s ease-in-out);
   }
@@ -71,10 +72,15 @@
   .field--widget-commerce-product-variation-attributes {
     margin: 0;
   }
-  form .button--primary {
-    width: 100%;
-    font-weight: bold;
+  form {
+    margin: -45px 10px 10px 10px;
 
-    .primary-button();
+    .button--primary {
+      width: 100%;
+      height: 35px;
+      font-weight: bold;
+
+      .primary-button();
+    }
   }
 }

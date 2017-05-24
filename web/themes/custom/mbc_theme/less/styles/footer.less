@@ -5,4 +5,24 @@
   padding-bottom: 40px;
   margin-top: 40px;
   background-color: @color-gray-higher;
+  
+  .menu {
+    width: 25%;
+    
+    a {
+      color: @color-primary-lower;
+      .transition(color .3s ease-in-out);
+      
+      &:hover {
+        color: @color-primary;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+#block-mbc-theme-footer {
+  h2 {
+    color: @color-primary;
+  }
 }

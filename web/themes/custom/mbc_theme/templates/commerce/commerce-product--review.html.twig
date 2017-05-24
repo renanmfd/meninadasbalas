@@ -20,7 +20,7 @@
  */
 #}
 
-{% set classes = ['product', 'product-card', product.title['#bundle']] %}
+{% set classes = ['product', 'product-review', product.title['#bundle']] %}
 {% set title = product.title|render|striptags|trim|raw %}
 <div{{ attributes.addClass(classes) }} itemscope itemtype="http://schema.org/Product">
   <div class="metadata hidden">
@@ -34,21 +34,19 @@
     </span>
   </div>
 
-  <a href="{{ product_url }}" alt="Página do produto {{ title }}">
-    <div class="product-image">
-      {{ product.variation_field_imagem }}
-    </div>
+  <div class="product-image">
+    {{ product.variation_field_imagem }}
+  </div>
 
-    <div class="product-info">
-      <h3 class="product-title" itemprop="name">{{ product.title }}</h3>
-      <div class="product-price">
-        {{ product.variation_price }}
-      </div>
+  <div class="product-info">
+    <div>
+      <h3>{% trans %}Sobre{% endtrans %}</h3>
+      <h4 class="product-title">
+        <a href="{{ product_url }}" alt="{{ title }}" title="{{ title }}" itemprop="name">
+          {{ product.title }}
+        </a>
+      </h4>
     </div>
-  </a>
-
-  <div class="product-addtocart">
-    {{ product.variations }}
   </div>
 
 </div>
