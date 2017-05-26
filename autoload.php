@@ -14,4 +14,4 @@
  * @see core/modules/statistics/statistics.php
  */
 
-return require __DIR__ . '/project/composer/autoload.php';
+return require __DIR__ . '/vendor/autoload.php';
