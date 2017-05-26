@@ -10,12 +10,12 @@ mkdir -p backup/database
 
 #echo $BASEPATH
 DUMPNAME="$SITENAME-$DATE.sql"
-cd "$BASEPATH/backup/database/"
+cd "$BASEPATH/project/backup/database/"
 mysqldump -u$MYSQL_USER -p$MYSQL_PSWD $MYSQL_TABLE > $DUMPNAME
 zip -r -q "$DUMPNAME.zip" $DUMPNAME
 rm $DUMPNAME
 
-cd "$BASEPATH/web/sites/default/";
+cd "$BASEPATH/project/web/sites/default/";
 FILENAME="$BASEPATH/backup/file/$SITENAME-$DATE.zip"
 zip -r -q $FILENAME files/
 cd $BASEPATH
