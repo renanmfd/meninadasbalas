@@ -15,8 +15,8 @@ mysqldump -u$MYSQL_USER -p$MYSQL_PSWD $MYSQL_TABLE > $DUMPNAME
 zip -r -q "$DUMPNAME.zip" $DUMPNAME
 rm $DUMPNAME
 
-cd "$BASEPATH/project/web/sites/default/";
-FILENAME="$BASEPATH/backup/file/$SITENAME-$DATE.zip"
+cd "$BASEPATH/sites/default/";
+FILENAME="$BASEPATH/project/backup/file/$SITENAME-$DATE.zip"
 zip -r -q $FILENAME files/
 cd $BASEPATH
 
