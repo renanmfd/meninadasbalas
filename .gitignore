@@ -19,3 +19,6 @@ sites/simpletest
 
 project/monografia/node_modules/
 project/monografia/build/
+
+# Server
+extra/
