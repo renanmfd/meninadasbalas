@@ -3,12 +3,13 @@
 Neste capítulo descreverei as tecnologias utilizadas e o por que de sua escolha.
 
 % =========================================================================== %
-\section{Ambiente de Desenvolvimento}
+\section{Pré-desenvolvimento}
 
-TODO Host e dominio
-Como dito anteriormente, temos muitas opções de servidores para instalarmos este e-commerce. Para a escolha, foi levada em consideração a recomendação dos usuários do framework que será utilizado (será explanado na próxima seção) postado em www.drupal.org/hosting, o preço oferecido, a quantidade de domínios possíveis e o espaço em disco disponibilizado. As melhores opções na época de contatação eram:
+\subsection{Hosting}
+Como dito anteriormente, temos muitas opções de servidores para instalarmos este e-commerce. Para a escolha, foi levada em consideração a recomendação dos usuários do framework que será utilizado (será explanado na próxima seção) postado em \url{www.drupal.org/hosting}, o preço oferecido, a quantidade de domínios possíveis e o espaço em disco disponibilizado. As melhores opções na época de contatação do serviço eram:
 
-\begin{center}
+\begin{table}
+  \centering
   \begin{tabular}{ | l | l | l | l |}[Hosting]
     \hline
     Nome      & Espaço    & Domínios  & Valor         \hline
@@ -17,25 +18,142 @@ Como dito anteriormente, temos muitas opções de servidores para instalarmos es
     GoDaddy   & Ilimidado & Ilimitado & R\$ 10,99/mês \hline
     SiteGroud & 20 GB     & Ilimitado & R\$ 14,99/mês \hline
   \end{tabular}
-  Tablela
-\end{center}
+  \caption{Opções de hosting para o e-commerce.}
+  \label{Hosting}
+\end{table}
+
+Deste, foi escolhido o serviço da empresa Hostgator, por oferecer espaço e domínios ilimitados e o menor preço.
+
+\subsection{Domínio}
+Como também é um fator importante para SEO, foi sugerido ao cliente escolher um nome de domínio simples, facil de ser associado com a marca e com um top level domain (TLD ou domínio de nível superior) que dê credibilidade ao site como por exemplo o `.com` ou `.com.br`. No caso deste último, a indexação será melhor em uma busca nacional \cite{TLD}. Foi então combinado de usar o nome da empresa com o TLD mais utilizado, com mais de 90\% dos sites brasileiros \cite{RegistroBr}, ficando como a seguir:
+
+\begin{figure}
+  \centering
+    \large
+    meninadasbalas.com.br
+\end{figure}
+
+Comprado online na empresa GoDaddy \url{br.godaddy.com}, foi pago R\$ 44,99 por 1 ano de direito de uso deste domínio.
 
 % =========================================================================== %
-\section{Back-end}
+\section{Drupal}
 
-TODO Drupal
-TODO Modulos Drupal
-TODO Apache
-TODO PHP
-TODO MySQL
-TODO Vagrant
+Como base para o o e-commerce utilizaremos o framework e gerenciador de conteúdo Drupal.  Este software foi criado em 2000 pelo estudante universitário belga Dries Buytaert para ser um pequeno gerenciador de postagem um blog. Mais tarde em 2001, o código deste sistema foi aberto ao público, com o intuito de permitir as pessoas pudessem realizar experimentos e construir extenções. Desde então, o número de usuários vem crescendo a cada ano e sua comunidade de desenvolvedores melhorando o código diarimente. Hoje o Drupal conta com mais de 37 mil extenções \cite{DrupalModules}, chamadas de módulos, com diversas funcionalidades e utilizando as mais novas tecnologias, além de mais de 2 mil temas \cite{DrupalTheme}.
 
+Os motivos desta escolha são:
+
+\begin{itemize}
+  \item Segurança: Muitas camadas de proteção são oferecidas pelo Drupal, desde controle de acesso de usuários à API's que protegem o sistema de ataques.
+  \item Flexibilidade: Podemos usa-lo para todo e qualquer tipo de site ou serviço online e seu sistema pode ser adaptado para qualquer projeto.
+  \item Comunidade: A quantidade e qualidade das extenções providas pela comunidade para adicionar as mais diversas funcionalidades.
+  \item Experiencia: Prévia experiência com o framework, o que facilita o design e desenvolvimento do sistema e-commerce.
+\end{itemize}
+
+\subsection{Drupal 8}
+
+A versão estável mais recente do Drupal é a número 8 e será a utilizada no projeto. Comparada com a versão anterior, temos um sistema de cache muito mais potênte, módulos importantes adicionados ao núcleo, a mudança do sistema de templates de PHP para Twig, segurança reforçada e novas tecnologias e padrões sendo absorvidos. 
+
+\subsection{Núcleo}
+
+Ao instalar o Drupal nos deparamos com um site cru, mas com várias funciolidades já prontas para serem utilizadas. Algumas delas serão de suma importância para atingirmos nossos objetivos e serão listadas abaixo, pelo nome do módulo no núcleo.
+
+\subsubsection{Node}
+O gerênciamento de conteúdo é algo nativo do Drupal, então planejaremos quais os tipos que teremos no site. Cada conteúdo, conhecido como node, pode ter campos configuráveis, que podem representar propriedades do mesmo como por exemplo título, descrição, imagem, relação com outro conteúdo, autor, entre outros. Alguns deles como titulo, autor e status de publicação são padrões para todos.
+
+Planejamos quatro tipos de conteúdo:
+\begin{itemize}
+  \item Banner - Representando o baner da página inicial, tendo campos para título, um subtítulo e uma imagem.
+  \item Review - Representando as opiniôes dos usuários sobre os produtos com um campo de texto e o título automático, para facilitar a criação deste conteúdo.
+  \item Article - Postagens gerais de conteúdo aberto, com título, imagens e textos.
+  \item Opinion - Representando os opiniôes dos usuários sobre a empresa.
+\end{itemize}
+
+Poderiamos considerar o produto também um conteúdo, mas como veremos adiante, este é uma entidade a parte, criada por um módulo da comunidade.
+
+\subsubsection{Taxonomy}
+Já pensando nos produtos, criaremos um vocabulário de taxonomia, que é uma lista de keywords utilizadas para organizar o conteúdo do site. Estas keywords serão os sabores de balas que a empresa fabrica e serão atrelados a cada produto, para facilitar a posterior filtragem e exibição destes.
+
+\subsubsection{Views}
+Modo mais comum de exibir grupos de conteúdo no Drupal, o módulo Views é um dos que na versão anterior não eram parte core e por sua importancia foi incorporado. Ele permite filtragem e ordenação por valores de propriedades e a exibição de um número específico de conteúdos. 
+
+Com ele, faremos os blocos de baners, reviews, notícias, produtos e opiniões da homepage.
+\begin{itemize}
+  \item Baner: Os 3 conteúdos do tipo baner em formato de carrosel automático.
+  \item Notícias: As 3 notícias mais recentes postadas.
+  \item Reviews: Os 4 reviews mais visualizados.
+  \item Opiniões: 3 opiniões escolhidas pelo administrador.
+\end{itemize}
+
+Além dos blocos, faremos também as páginas de listagem de produtos, reviews, opiniões e notícias.
+
+\subsubsection{User}
+Responsável pelo gerenciamento dos usuários do site e suas permissões, este módulo nos permitirá ter usuários logados com todas as informações necessárioas para o fluxo de compras e criação de conteúdo.
+
+\subsubsection{Menu}
+Este módulo, como o nome já diz, cria menus com ancoras para outros lugares do site ou sites externos. Segue a listagem dos menus do site, com nome, localização e função:
+
+\begin{itemize}
+  \item Topbar Contact Menu: Localizado no topo da página, terá apenas dois links para a página de contato.
+  \item Topbar User Menu: Também no top da página, terá links de login e registro para usuários anônimos e links para detalhes da conta e sair para usuários logados.
+  \item Main Menu: Menu principal, na parte superior do site com links para as páginas mais importantes.
+  \item Footer Menu: No rodapé do site, menu com links para loja, página de contato e informações em geral.
+\end{itemize}
+
+\subsection{Módulos Drupal}
+Utilizaremos alguns módulos que suas funcionalidades são úteis apenas para o estagio de desenvolvimento do site. São eles:
+
+\begin{itemize}
+  \item Admin Toolbar: Melhora os menus da área administrativa do site, facilitando o acesso a configurações e outras funcionalidades.
+  \item Adminimal Admin Toolbar: Ajusta o tema do módulo anterior para functionar com o tema adiministrativo do site, explanado nas próximas seções.
+  \item Devel: Conjunto de ferramentas administrativas como por exemplo debug de código e configurações e um gerador de conteúdo para testes.
+  \item Module Filter: Facilita o gerenciamento da lista de módulos, separando por categoria e com um campo de busca.
+\end{itemize}
+
+% =========================================================================== %
+\section{Ambiente de Desenvolvimento}
+
+Com o framework escolhido, vamos construir o ambiênte de desenvolvimento. 
+
+\subsection{Sistemas Operacinais e Maquina Virtual} 
+Utilizarei o sistema operacional Ubuntu 16.04 e esporadicamente OSX El Capitan para desenvolvimento local e no servidor temos um CentOS 6. Para evitar problemas de compatibilidade como dito no capítulo de introdução, utilisaremos para desenvolvimento local uma maquina virtual (VM) com as mesmas configurações do servidor. O gerenciamento e configuração desta será feita por um software especializado chamado Vagrant.
+
+Será usada uma configuração pré-definida criada por Jeff Geerling \url{www.drupalvm.com/}, Arquiteto Drupal, especificamente para o Drupal, onde o Vagrant cria uma maquina virtual e a configura especificamente para Drupal, com todos os programas e ferramentas que serão necessárias para o desenvolvimento. Alteramos somentes os pontos onde temos que imitar o servidor Hostgator, que é a versão dos softwares Apache2 e MySQL e a versão da linguagem PHP. Isso já nos garante o funcionamento estável e previsivel do nosso site em todos os ambiêntes que ele estiver instalado.
+
+\subsection{Apache, PHP e MySQL}
+Apesar do Drupal funcionar com vários softwares de servidores web, como Nginx e Hiawatha, o mais utilizado é o Apache2. Além disso, nosso servidor também roda Apache2 2.2.25, então este é a escolha inevitável. 
+
+Para a linguagem de servidor, o Drupal 8 requer PHP na versão mínima 5.5.9 e no servidor podemos escolher entre 5.5, 5.6 e 7.0. Foi escolhido a versão 7.0 por ser mais rápida \cite{PHP7Velocidade} e possuir funcionalidades mais avançadas e seguras que a versão 5.6 \cite{PHP7}.
+
+O software de banco de dados será o MySQL versão 5.6.32, que é a única opção no servidor e foi verificada a versão utilizada.
+
+\subsection{Fluxo}
+O código será versionado pelo software Git e salvo em repositório publico remoto mantido pela empresa Github \url{www.github.com}. Quando cada pequena tarefa for terminada, um commit é feito com uma breve descrição do que foi feito. Versões de teste serão carregadas para o servidor via SSH (\TODO), também utilizando o Git. Um subdomínio será criado para esta versão de teste, adicionando `dev.` no endereço do site. Esta versão será exclusivamente para testes e deverá ter acesso restrito ao publico em geral. Assim que uma versão estável for atingida, mesmo que sem todos os requisitos do site alcançados, esta será carregada para o ambiente de produção, no domínio principal. O objetivo deste fluxo é ter o máximo de funcionalidades possíves antes de inaugurar o site.
+
+\subsection{Composer}
+Iremos utilizar o software gerenciador de pacotes Composer para instalar o Drupal e suas dependências e posteriormente os módulos da comunidade que serão necessários. Uma boa base para o projeto pode ser o Drupal-Composer Project \url{www.github.com/drupal-composer/drupal-project}, código de configuração e scripts do Composer que montam o Drupal com a estrutura de arquivos requirida por ele.
+
+Porém, um problema foi detectado no uso deste pacote. O Drupal é instalado em um sub-diretório do projeto e não na raiz. Isso nos impede de utilizar o domínio principal quando o site for instalado no servidor, pois os arquivos tem que estar na raiz do diretório. Para resolver isto, criei uma fork \TODO \url{https://github.com/renanmfd/drupal-project} deste projeto no Github e modifiquei todos os códigos e configurações para instalar o Drupal no diretório raíz. Esta \TODO fork foi carregada no site Packagist \url{https://packagist.org} para ficar disponível para download via Composer \url{https://packagist.org/packages/renanmfd/drupal-project}.
+
+\TODO comando \$ composer create-project drupal-composer/drupal-project:8.x-dev meninadasbalas --stability dev --no-interaction
+
+Com o problema sanado, podemos dar inicio ao processo de instalação do Drupal e logo após a fase de codificação do projeto.
 
 % =========================================================================== %
 \section{Front-end}
 
-TODO Bootstrap
-TODO Temas Drupal
+\subsection{Bootstrap}
+Para o estilo ou tema do site, utilizaremos um dos melhores e mais utilizados frameworks de CSS e Javascript \cite{Bootstrap} que existe atualmente, o Boostrap. A escolha deste se deu simplesmente pelo conhecimento prévio e facilidade de uso. Com ferramentas para design responsivo e bibliotecas Javascript para funcionalidades que serão necessárias como por exemplo o carrosel de baners, este framework é a melhor opção para este projeto.
+
+\subsection{Temas Drupal}
+Na comunidade de Drupal, temos um tema Boostrap, que é uma base para sites que pretendem utilizar esta ferramenta para constriur seus layouts. Este é nosso primeiro requerimento do projeto, instalado via Composer.
+
+\TODO comando \$ composer require drupal/bootstrap
+
+Em seguida, para facilitar o desenvolvimento, vamos instalar também um tema administrativo, que como o adjetivo já diz, só é utilizado nas páginas administrativas do site. Foi escolhido o tema Adminimal Theme, por ser um dos temas deste tipo mais utilizados e proporcionar uma interface responsiva.
+
+\TODO comando \$ composer require drupal/adminimal_theme
+
+\subsection{LESS}
 TODO LESS
 TODO Javascript
 TODO jQuery
