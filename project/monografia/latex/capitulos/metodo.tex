@@ -99,15 +99,6 @@ Este módulo, como o nome já diz, cria menus com ancoras para outros lugares do
   \item Footer Menu: No rodapé do site, menu com links para loja, página de contato e informações em geral.
 \end{itemize}
 
-\subsection{Módulos Drupal}
-Utilizaremos alguns módulos que suas funcionalidades são úteis apenas para o estagio de desenvolvimento do site. São eles:
-
-\begin{itemize}
-  \item Admin Toolbar: Melhora os menus da área administrativa do site, facilitando o acesso a configurações e outras funcionalidades.
-  \item Adminimal Admin Toolbar: Ajusta o tema do módulo anterior para functionar com o tema adiministrativo do site, explanado nas próximas seções.
-  \item Devel: Conjunto de ferramentas administrativas como por exemplo debug de código e configurações e um gerador de conteúdo para testes.
-  \item Module Filter: Facilita o gerenciamento da lista de módulos, separando por categoria e com um campo de busca.
-\end{itemize}
 
 % =========================================================================== %
 \section{Ambiente de Desenvolvimento}
@@ -142,21 +133,49 @@ Com o problema sanado, podemos dar inicio ao processo de instalação do Drupal 
 \section{Front-end}
 
 \subsection{Bootstrap}
-Para o estilo ou tema do site, utilizaremos um dos melhores e mais utilizados frameworks de CSS e Javascript \cite{Bootstrap} que existe atualmente, o Boostrap. A escolha deste se deu simplesmente pelo conhecimento prévio e facilidade de uso. Com ferramentas para design responsivo e bibliotecas Javascript para funcionalidades que serão necessárias como por exemplo o carrosel de baners, este framework é a melhor opção para este projeto.
+Para o estilo ou tema do site, utilizaremos um dos melhores e mais utilizados frameworks de CSS e Javascript \cite{Bootstrap} que existe atualmente, o Boostrap. A escolha deste se deu simplesmente pelo conhecimento prévio e facilidade de uso. Com ferramentas para design responsivo e bibliotecas Javascript para funcionalidades que serão necessárias como por exemplo o carrosel de baners, este framework é a melhor opção para este projeto. No momento do desenvolvimento deste projeto a versão mais estável é a 3.
 
 \subsection{Temas Drupal}
 Na comunidade de Drupal, temos um tema Boostrap, que é uma base para sites que pretendem utilizar esta ferramenta para constriur seus layouts. Este é nosso primeiro requerimento do projeto, instalado via Composer.
 
 \TODO comando \$ composer require drupal/bootstrap
 
-Em seguida, para facilitar o desenvolvimento, vamos instalar também um tema administrativo, que como o adjetivo já diz, só é utilizado nas páginas administrativas do site. Foi escolhido o tema Adminimal Theme, por ser um dos temas deste tipo mais utilizados e proporcionar uma interface responsiva.
+Criaremos um sub-tema, com base no Bootstrap para Drupal que será chamado `MBC Theme`. Neste tema teremos os arquivos de CSS, imagens utilizadas pelo CSS, Javascript, templates Twig e um arquivo de PHP onde podemos modificar e adicionar as variáveis que são passadas os templates. 
+
+Em seguida, para facilitar o desenvolvimento, vamos instalar também um tema administrativo, que como o adjetivo já diz, só é utilizado nas páginas administrativas do site. Foi escolhido o tema Adminimal Theme, por ser um dos temas desta categoria mais utilizados e proporcionar uma interface responsiva e limpa.
 
 \TODO comando \$ composer require drupal/adminimal_theme
 
 \subsection{LESS}
-TODO LESS
-TODO Javascript
-TODO jQuery
+Less é um pré-processador de CSS que extende a linguagem, adicionando melhorias como variáveis, funções e várias outras tecnicas que deixam a manutenção do CSS mais fácil \cite{Less}. Ela foi escolhida por ser utilizada nativamente no framework Bootstrap versão 3.
+
+\TODO Exemplo de LESS -> CSS
+
+O tema do site derá desenvolvido da forma mais modular possível, cada bloco minimo do site tendo seu próprio arquivo, que serão unificados e processados pelo compilador do LESS. A intenção é facilitar a futura melhoria de performance, carregando na página apenas o estilo dos blocos que estão nela. Inicialmente, todos serão incluídos e transformados em um único arquivo de CSS que carregara em todas as páginas.
+
+\subsection{Javascript}
+Interações e efeitos mais avançados em páginas web são feitos pelo Javascript (JS), linguagem de script interpretada pelo browser, que tem acesso a toda a estrutura do site. O carrosel de baners na homepage irá utilizar uma das funcionalidades que o JS do framework Bootstrap disponibiliza.
+
+Para garantir qualidade do código JS, utilizaremos a ferramenta ESLint criada por Nicholas C. Zakas em 2013. Esta analiza o código e avisa sobre estruturas que não seguem  padrões de código ou são consideradas inseguras.
+
+\TODO Onde mais tem JS.
+\subsection{jQuery}
+Para facilitar o desenvolvimento com Javascript e por ser um requerimento do Boostrap, utilizaremos a biblioteca jQuery. Esta possui várias funções que são muito utilizadas no desenvolvimento o que facilita algumas tarefas.
+
+\TODO Exemplo facilidade JS -> jQuery
+
+\subsection{NPM & Gulp}
+Para fechar o ambiente de front-end, utilizaremos o automatizador de tarefas Gulp e alguns pacotes de extenção que ele possúi. O Gulp e suas extenções são escritas em Javascript e executam em ambiente do NodeJS. Para instala-los, utilizamos o gerenciador de pacotes do NodeJS chamado Node Package Manager (NPM). Após instalar o NodeJS e o NPM, utilizamos os seguintes comandos para instalar o Gulp e seus pacotes.
+
+\TODO 
+#em qualquer pasta, para instalar o Gulp no sistema e poder utiliza-lo por linha de comando
+$ npm install --global gulp
+#na pasta raiz do projeto, inicializamos o projeto npm.
+$ npm init
+#agora instalamos os pacotes necessários
+$ npm install --save-dev gulp gulp-less gulp-utils gulp-eslint
+\TODO comando \$
+
 TODO Gulp
 
 
