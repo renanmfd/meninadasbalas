@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "201dd318961f9bae19a534d1c79a36ff",
+    "content-hash": "3b5cbe859bb5433dcc00792bcde899a2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1569,7 +1569,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/blazy-8.x-1.0-rc2.zip",
-                "reference": null,
+                "reference": "8.x-1.0-rc2",
                 "shasum": "242f3022b039c6fd3b98f6ce1955d295119b4b5a"
             },
             "require": {
@@ -2077,16 +2077,16 @@
         },
         {
             "name": "drupal/console",
-            "version": "1.0.0-rc19",
+            "version": "1.0.0-rc20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hechoendrupal/drupal-console.git",
-                "reference": "98ad4c0362146689f3d4f895394ef35a4f95443d"
+                "reference": "558ae5209232c7a5d236c5fab77f20703cb0b048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/drupal-console/zipball/98ad4c0362146689f3d4f895394ef35a4f95443d",
-                "reference": "98ad4c0362146689f3d4f895394ef35a4f95443d",
+                "url": "https://api.github.com/repos/hechoendrupal/drupal-console/zipball/558ae5209232c7a5d236c5fab77f20703cb0b048",
+                "reference": "558ae5209232c7a5d236c5fab77f20703cb0b048",
                 "shasum": ""
             },
             "require": {
@@ -2094,7 +2094,7 @@
                 "composer/installers": "~1.0",
                 "doctrine/annotations": "1.2.*",
                 "doctrine/collections": "~1.3",
-                "drupal/console-core": "1.0.0-rc19",
+                "drupal/console-core": "1.0.0-rc20",
                 "drupal/console-extend-plugin": "~0",
                 "gabordemooij/redbean": "~4.3",
                 "guzzlehttp/guzzle": "~6.1",
@@ -2151,25 +2151,25 @@
                 "drupal",
                 "symfony"
             ],
-            "time": "2017-05-08T16:49:07+00:00"
+            "time": "2017-05-26T08:49:45+00:00"
         },
         {
             "name": "drupal/console-core",
-            "version": "1.0.0-rc19",
+            "version": "1.0.0-rc20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hechoendrupal/drupal-console-core.git",
-                "reference": "c5be69f660727b38ce6c904dcb0e061e03de7aeb"
+                "reference": "4b93841301a88db2ae210186e74e0e2529369c17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/drupal-console-core/zipball/c5be69f660727b38ce6c904dcb0e061e03de7aeb",
-                "reference": "c5be69f660727b38ce6c904dcb0e061e03de7aeb",
+                "url": "https://api.github.com/repos/hechoendrupal/drupal-console-core/zipball/4b93841301a88db2ae210186e74e0e2529369c17",
+                "reference": "4b93841301a88db2ae210186e74e0e2529369c17",
                 "shasum": ""
             },
             "require": {
                 "dflydev/dot-access-configuration": "1.0.1",
-                "drupal/console-en": "1.0.0-rc19",
+                "drupal/console-en": "1.0.0-rc20",
                 "php": "^5.5.9 || ^7.0",
                 "stecman/symfony-console-completion": "~0.7",
                 "symfony/config": ">=2.7 <3.0",
@@ -2183,7 +2183,7 @@
                 "symfony/translation": ">=2.7 <3.0",
                 "symfony/yaml": ">=2.7 <3.0",
                 "twig/twig": "^1.23.1",
-                "webflo/drupal-finder": "0.*"
+                "webflo/drupal-finder": "^0.3.0"
             },
             "type": "project",
             "autoload": {
@@ -2231,20 +2231,20 @@
                 "drupal",
                 "symfony"
             ],
-            "time": "2017-05-08T16:08:29+00:00"
+            "time": "2017-05-26T08:40:17+00:00"
         },
         {
             "name": "drupal/console-en",
-            "version": "1.0.0-rc19",
+            "version": "1.0.0-rc20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hechoendrupal/drupal-console-en.git",
-                "reference": "df4da4011500496fc9c1d611cd36343006079915"
+                "reference": "b6f563b8760c3b19aad22dd213a9cfba2f2c75d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/drupal-console-en/zipball/df4da4011500496fc9c1d611cd36343006079915",
-                "reference": "df4da4011500496fc9c1d611cd36343006079915",
+                "url": "https://api.github.com/repos/hechoendrupal/drupal-console-en/zipball/b6f563b8760c3b19aad22dd213a9cfba2f2c75d0",
+                "reference": "b6f563b8760c3b19aad22dd213a9cfba2f2c75d0",
                 "shasum": ""
             },
             "type": "drupal-console-language",
@@ -2285,7 +2285,7 @@
                 "drupal",
                 "symfony"
             ],
-            "time": "2017-05-05T21:51:49+00:00"
+            "time": "2017-05-20T23:29:05+00:00"
         },
         {
             "name": "drupal/console-extend-plugin",
@@ -2861,17 +2861,17 @@
         },
         {
             "name": "drupal/entity_reference_revisions",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/entity_reference_revisions",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_reference_revisions-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "15261a4237cc2a743522a7bd81e9f34e01d12843"
+                "url": "https://ftp.drupal.org/files/projects/entity_reference_revisions-8.x-1.3.zip",
+                "reference": null,
+                "shasum": "78aebb58efbbfcbb2faa40a1afc0830312b32631"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2885,8 +2885,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1485790085"
+                    "version": "8.x-1.3",
+                    "datestamp": "1495814284"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2958,6 +2958,58 @@
             "homepage": "https://www.drupal.org/project/focal_point",
             "support": {
                 "source": "http://cgit.drupalcode.org/focal_point"
+            }
+        },
+        {
+            "name": "drupal/google_analytics",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/google_analytics",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/google_analytics-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "9b5c76802ca28d5072bb9bb552bbfeb660b0734a"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/php": "*",
+                "drupal/token": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1470845408"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/u/hass"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/49388/committers"
+                }
+            ],
+            "description": "Allows your site to be tracked by Google Analytics by adding a Javascript tracking code to every page.",
+            "homepage": "https://www.drupal.org/project/google_analytics",
+            "support": {
+                "source": "http://git.drupal.org/project/google_analytics.git",
+                "issues": "https://www.drupal.org/project/issues/google_analytics"
             }
         },
         {
@@ -3403,6 +3455,69 @@
             "homepage": "http://drupal.org/project/profile",
             "support": {
                 "source": "http://cgit.drupalcode.org/profile"
+            }
+        },
+        {
+            "name": "drupal/shield",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/shield",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/shield-8.x-1.0.zip",
+                "reference": null,
+                "shasum": "b20739e0c7460520ab4469764d8d4b794f325895"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1471420739"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "axel.rutz",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "badjava",
+                    "homepage": "https://www.drupal.org/user/83372"
+                },
+                {
+                    "name": "chx",
+                    "homepage": "https://www.drupal.org/user/9446"
+                },
+                {
+                    "name": "japerry",
+                    "homepage": "https://www.drupal.org/user/45640"
+                },
+                {
+                    "name": "kalman.hosszu",
+                    "homepage": "https://www.drupal.org/user/267481"
+                },
+                {
+                    "name": "pkiraly",
+                    "homepage": "https://www.drupal.org/user/352587"
+                }
+            ],
+            "description": "Creates a general shield for the site.",
+            "homepage": "https://www.drupal.org/project/shield",
+            "support": {
+                "source": "http://cgit.drupalcode.org/shield"
             }
         },
         {
