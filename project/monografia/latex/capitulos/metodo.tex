@@ -1,16 +1,16 @@
 \chapter{Método}
 
-Neste capítulo descreverei as tecnologias utilizadas e o por que de sua escolha.
+Neste capítulo descreveremos as tecnologias utilizadas para o desenvolvimento do projeto.
 
 % =========================================================================== %
-\section{Pré-desenvolvimento}
+\section{Pré desenvolvimento}
 
 \subsection{Hosting}
 Como dito anteriormente, temos muitas opções de servidores para instalarmos este e-commerce. Para a escolha, foi levada em consideração a recomendação dos usuários do framework que será utilizado (será explanado na próxima seção) postado em \url{www.drupal.org/hosting}, o preço oferecido, a quantidade de domínios possíveis e o espaço em disco disponibilizado. As melhores opções na época de contatação do serviço eram:
 
 \begin{table}
   \centering
-  \begin{tabular}{ | l | l | l | l |}[Hosting]
+  \begin{tabular}{llll}[Hosting]
     \hline
     Nome      & Espaço    & Domínios  & Valor         \hline
     Bluehost  & Ilimitado & 3         & R\$ 15,90/mês \hline
@@ -230,36 +230,139 @@ Para utilizar os serviços do Paypal, instalamos o módulo Commerce Paypal no no
 % =========================================================================== %
 \section{Extendendo o Drupal}
 
-Para continuar a construção das funcionalidades de back-end do site, iremos instalar alguns módulos.
+Para continuar a construção das funcionalidades de back-end do site, temos que adicionar módulos da comunidade Drupal. Falaremos agora dos mais importantes e o em qual tarefa eles irão nos auxiliar.
 
-\subsection{}
+\subsection{Paragraphs}
+\subsection{Shield}
+\subsection{Social Login}
+\subsection{Display Suite}
+\subsection{Pathauto}
+\subsection{Menu Block}
 
-
-
-No anexo 2, temos uma lista de todos os módulos Drupal instalados com uma descrição das suas funcionalidades.
+No anexo \ref{app:modules} temos uma lista de todos os módulos Drupal instalados com uma descrição das suas funcionalidades.
 
 % =========================================================================== %
 \section{Performance}
 
+Para termos um site rápido, que retem os clientes do negócio, utilizaremos algumas técnicas e descreveremos algumas que o Drupal 8 já utiliza como padrão.
 
+\subsection{Minificação, Agregação e Compactação}
+As mais simples das melhorias que afetam positivamente a performance de um website são a minificação, agregação e a compactação dos recursos que o browser tem que baixar para montar a página. 
 
-TODO Cache
-TODO Métodos de medição
+A minificação é o processo de remover caractéres desnecessários dos arquivos, normalmente espaços e quebras de linhas e no caso do Javascript, renomeando funções e variáveis com nomes de um só caractere, sem mudar a lógica do script. Após a minificação, os arquivos minificados ainda podem ser utilizados pelo browser normalmente. O benefício é a diminuição do tamanho dos recursos do website.
+
+A agregação é o processo de juntar todos os arquivos com mesma extenção no menor número possivel de arquivos. Por exemplo, todos os recursos de CSS de um site, que no caso do Drupal 8 pode chegar a ser entre 30 e 50, são agregados e transformados em 3 arquivos maiores. Isso melhora a performance por que diminui o numero de requisições o browser tem que fazer para montar a página.
+
+A compactação é um processo que diminui o tamanho do arquivo com tecnicas mais avançadas e requerindo que o browser faça a descompactação antes de utilizar os recursos. É a mesma situação de compactar um arquivo PDF na extenção ZIP, ele diminui o tamanho do arquivo, porém para utiliza-lo novamente temos que descompactar. Esta compactação é feita pelo servidor somente quando ele está habilitado a faze-lo e a requisição possui  um header específico, que avisa a ele que o cliente está apto a receber recursos compactados.
+
+O Drupal 8, em suas configurações, já habilita a compactação dos arquivos pelo servidor. Estas estão no arquivo .htaccess na raíz do projeto.
+
+Apesar do Drupal ter uma funcionalidade de compactação de CSS e JS, vamos instalar um módulo da comunidade que o faz com ferramentas melhores e possúi mais opções, entre elas a agregação de arquivos. Este módulo se chama Advanced Aggregation.
+
+Outro recurso que precisa ser minificado são as imagens do site e para isto utilizaremos o módulo TinyPNG.
+
+\subsubsection{TinyPng}
+Este módulo foi desenvolvido originalmente para o Drupal 7, sem versões para o Drupal 8. Por ser um módulo relativamente simples, fizemos a migração e adaptação deste módulo para o Drupal 8. Algumas características não foram implementadas por uma questão de tempo e simplicidade. Este módulo utiliza o serviço do site TinyPNG \url(www.tinypng.com) e sua API para minificar todas as imagens que são carregas no site. O código é bem breve, sendo somente uma função.
+
+\lstset{language=PHP}
+\begin{lstlisting}[frame=single]
+  <?php
+
+  use Drupal\Core\Entity\EntityInterface;
+
+  /**
+   * Implements hook_entity_presave().
+   *
+   * Process the image with TinyPNG service.
+   */
+  function tinypng_entity_presave(EntityInterface $entity) {
+    $config = \Drupal::config('tinypng.settings');
+    if ($entity->isNew() && $entity->getEntityTypeId() == 'file' && empty(file_validate_is_image($entity)) ) {
+      $config = \Drupal::config('tinypng.settings');
+      $api_key = $config->get('api_key');
+      // Skip if no api key is set.
+      if (empty($api_key)) {
+        drupal_set_message(t('The API key for tinyPNG is not set.'), 'error');
+        return;
+      }
+      // Compress image.
+      $image_path = $entity->getFileUri();
+      \Tinify\setKey($api_key);
+      $dest = drupal_realpath($image_path);
+
+      try {
+        if ($config->get('integration_method') == 'download') {
+          $origin = file_create_url($image_path);
+          $res = \Tinify\fromUrl($origin, $dest);
+          $res->toFile($dest);
+        }
+        else {
+          $res = Tinify\fromFile($dest)->toFile($dest);
+        }
+      }
+      catch (Exception $ex) {
+        \Drupal::logger('tinypng')->error($ex->getMessage());
+      }
+    }
+  }
+\end{lstlisting}
+
+\subsubsection{Blazy}
+Mais uma técnica utilizada é o Lazy Load. Esta consiste em adiar o carregamento das imagens de uma página até que ela seja necessária. Se a imagem esta em uma parte visível da página, ela é carregada logo após a renderização do site e não durante. Isso reduz o tempo de carregamento de uma página por que diminui os recursos a serem baixados durante a renderização da página.
+
+Para implementar esta funcionalidade utilizaremos o módulo Blazy do Drupal. Este adiciona formatadores de imagem que trocam o nome do atributo src para data-src da tag HTML img. Isso faz com que o browser não baixe a imagem durante a renderização, por não ter uma atributo src. Após a renderização da página, um código Javascript troca o nome de volta para src, fazendo com que o browser identifique e baixe as imagens necessárias. As que estão em porções não visíveis da tela, este atributo será mudado de nome somente quando esta porção estiver visível.
+
+\subsection{Técnicas}
+Uma técnica imprecindível para melhorar a velociadade de um site é fazer com que partes dele que sejam estáticas sejam processadas pelo servidor somente uma vez e seu resultado salvo para ser utilizado em outras requisições. Isso se chama cache. O Drupal 8 possúi um sistema bastante robusto de cache, que pode ser configurado para qualquer site. No nosso caso, utilizaremos as configurações que já vem padrão, somente desabilitando este cache nos ambientes de desenvolvimento.
+
+\subsection{Medição}
+A principal ferramenta que iremos utilizar para medir a performance do site é o serviço de análise GTMetrix do site \url{www.gtmetrix.com}. Esta ferramenta da notas a performance do site, baseadas em velocidade, boas práticas, quantidade de requests e tamanho total da página. Nos resultados, podemos ver dicas para melhorar a performance, mostrando o que foi feito e o que pode ser feito. Temos como objetivo conseguir no A (máxima) nas duas notas, PageSpeed e YSlow. Tentaremos implementar o máximo possível das dicas que forem dadas e as que não forem feitas, explicaremos o por que.
+
+Como alternativa, usaremos também o serviço do Google chamado PageSpeed Insights, que com menos funcionalidades, faz esta mesma análise de boas práticas.
 
 % =========================================================================== %
 \section{SEO}
 
-Utilizaremos algumas ferramentas para controlar e ter melhor visibilidade ao website. São estas:
+\subsection{Metatags}
+Metatags são elementos do códgio HTML que representam dados que não são mostrados na tela. Estes são utilizados por serviços externos, como motores de buscas e redes sociais para obter informações sobre o site sem ter que escanear o seu conteúdo. Informações como autor, titulo, descrição, keywords, imagem, linguagem, entre outras, são adicionadas via metatag.
 
-\begin{itemize}
-  \item Google Analytics: Serviço gratuito de monitoramento de visitas, com dados geográficos, origem do link, sistema operacional e navegador, entre outras informações \cite{Analytics}.
-  \item Google Search Console: Serviço gratuíto para monitoramento de indexação do site no buscador do Google com ferramentas para melhora-la. 
-  \item PageSpeed Insights: Uma ferramenta online que ajuda a identificar as melhores práticas de performance em um website e prove sugestões de otimizações.
-  \item GTMetrix: Ferramenta online que analisa a velocidade de um website e da recomendações para melhora-la.
-\end{itemize}
+\begin{center}
+  <meta property="og:phone_number" content="(35) 3621-7882">
+\end{center}
 
-TODO Metatags
-TODO Microdata
-TODO Estrutura HTML
-TODO Redes sociais
+A metatag acima é um exemplo do protocolo Open Graph \url{http://ogp.me/}. Este protocolo criado pelo Facebook permite serviços externos terem informações sobre uma página da web de forma simples e que pode ser implementado facilmente pelo desenvolvedor. Quando formos compartilha o link do site no Facebook, ele escaneará a URL em busca destas tags para montar um bloco com as informações, melhorando a visibilidade da empresa nesta rede social. Outros sites, serviços e ferramentas também utilizam este protocolo.
+
+Instalaremos o módulo Metatags do Drupal 8. Ele cria um conjunto de páginas administrativas  que permitem adicionar metatags de diversos protocolos em cada seção do site e também que estes sejam cadastrados via token, um placeholder que diz qual informação a metatag terá, baseado na página. Este token é um funcionalidade de outro módulo, requeido pelo Metatags, o Token. Ele nos permite por exemplo, na configuração da metatag de título da página, colocar o token [current-page:url], que é troca pela URL da página quando esta for renderizada pelo back-end. Desta maneira, não precisamos configurar este campo para todas as páginas do site.
+
+\subsection{Sitemap}
+Para melhor indexação das nossas páginas nos mecanismos de busca, podemos criar e enviar um arquivo XML com os caminhos das páginas que podem ser indexados no site. O módulo do Drupal 8 Simple Sitemap toma conta desta tarefa, criando um XML ficará disponível no caminho \url{www.meninadasbalas.com.br/sitemap.xml} e será possivel cadastra-lo nos motores de busca.
+
+\subsection{Microdata}
+Microdata, assim como as metatags, é utilizado para permitir que scripts externos escaneiem facilmente um página da web e saiba o que é cada elemento, sem ter que interpretar ou adivinhar. Este tipo de técnica é consiste em adicionar propriedades com valores especificos em tags HTML. Estes valores indicam qual tipo de item o conteúdo deste HTML pertence. Para exemplificar, podemos utlizar para descrever um artigo, identificando onde está no HTML o título, corpo, imagem, autor e data de publicação.
+
+\begin{center}
+  <article itemscope itemtype="http://schema.org/Article">
+    <div itemprop="headline">
+      Allies Are Split on Goal and 
+      Exit Strategy in Libya
+    </div>
+    <div itemprop="articleBody"> 
+      <p> ... </p>
+    </div>
+    <div itemprop="description">NATO Takes Command</div> 
+    <span itemprop="author">STEVEN LEE MYERS</span> 
+    <meta itemprop="datePublished" content="2011-03-24"/>
+  </article>
+\end{center}
+
+Por prover um melhor contexto para os motores de busca identificarem os conteúdos de uma página, esta técnica melhora muito a indexação de um site, além de melhorar a como os conteúdos do site aparecem no resultado da busca \cite{Microdata}.
+
+No nosso site, utilizaremos microdata em notícias, reviews, opiniões e produtos.
+
+\subsection{Redes sociais}
+Integração com redes sociais é quase um requerimento para websites de sucesso. Dar ao usuário um meio para facilmente compartilhar seu conteúdo no Facebook por exemplo, pode aumentar muito o número de visitas no site, além de ser vista com bom olhos pelos mecanismos de busca.
+
+\subsection{Google Search Console}
+Por fim, cadastraremos o nosso e-commerce na ferramenta Search Console do Google. Esta nos permite ter um visão de como está a indexação do site, quais os termos que quandos buscados o site aparece melhor colocado, quais modificações podem ser feitas para melhorar o a posição das páginas na busca, quais página do site tem erros, entre outras. Ela se mostra extremamente importante para o acompanhamento de campanhas de marketing e de análise do SEO de forma geral.
+
 
