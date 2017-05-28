@@ -194,11 +194,38 @@ No anéxo 1, temos a lista dos pacotes do NodeJS utlizados e o arquivo de config
 \section{Commerce}
 O Commerce é um modulo do Drupal para construção de lojas online que pode ser considerado como sendo um framework pelo tamanho e extensividade. Existem vários módulos que extendem o Commerce, adicionando funcionalidades, como por exemplo, diversos metodos de pagamento e serviços de entrega de produtos. Este módulo nos permite criar várias lojas, produtos, tipos de produtos e tipos de variantes de produtos.
 
+\subsection{Produto}
 Nosso site terá apenas uma loja. Uma loja extra é necessária quando por exemplo os produtos são enviados de lugares diferentes e produtos deste lugares não podem estar juntos em um pedido, o que não é o nosso caso.
 
-Nosso único tipo de variante de produto será a bala de coco. Variantes
+Nosso único tipo de variante de produto será a bala de coco. Variantes são pequenas variações nas propriedade dos produtos podem ser representadas por campos. No caso deste trabalho, a utilização de variantes implicaria em termos somente duas páginas de produtos, a da bala tradicional e da bala recheada, com um formulário para a escolha das características, como se fosse por exemplo uma página de um computador na Amazon, com opções de tamanho de memória RAM. Neste conteúdo teremos campos gerais para as balas, como imagem, preço, descrição e sabor.
 
-No nosso e-commerce, teremos apenas uma variante de produto, a bala de coco, com dois tipos sendo bala tradicional e a bala recheada. Esta divisão se da porque temos uma característica diferente na recheada em relação a tradicional, como o próprio nome diz, o recheio. Para poderemos diferencia-las,  
+Para os tipos de produtos, teremos dois. Um representará a bala tradicional sem campos adicionais e outro a bala recheada com um campo de sabor de recheio. Esta propriedade esta relacionada as diferentes características que um produto pode ter e tem que estar relacionada com um tipo de variante, no nosso caso, a bala de coco.
+
+O produto em si, será o conteúdo final a ser mostrado pela loja, deverá ser de um dos tipos de produto criados e pertencentes a uma ou mais lojas.
+
+Todo este fluxo ajuda o módulo a organizar o e-commerce de modo que a loja seja flexível em relação aos produtos que serão vendidos. No caso deste e-commerce, utilizamos pouco desta flexibilidade por ter apenas dois tipos de produto.
+
+\subsection{Cart}
+O Commerce nos proporciona um carrinho de compras atrelado a conta do usuário. Todo produto pode ter um botão para adiciona-lo ao carrinho do usuário ativo. Se for um visitante, o carrinho é guardado do mesmo jeito, porém pelo id da sessão, fazendo deste um carrinho temporário. Tembém temos um bloco para a página inicial com um botão que abre um resumo dos itens selectionado pelo usuário e um link para a página de detalhes do carrinho.
+
+\subsection{Shipping}
+Para o sitema de serviço e pagamento da entregas, temos que utilizar uma integração com os correios. Esta integração não existe no Drupal 8, então será algo que iremos criar. Como este é uma parte complicada e deverá tomar um tempo, será utilizado um sitema de pagamento fixo por produto para a entrega, que é nativo do módulo Commerce Shipping e mais adinte, dedicaremos uma seção ao módulo de integração do Commerce, Drupal 8 e a API dos Correios do Brasil.
+
+\subsection{Checkout}
+O processo de compra também é gerenciado pelo Commerce. O carrinho, quando o usuário começa o fluxo de compra, é transformado em uma order. O fluxo acontece em 5 etapas:
+
+\begin{itemize}
+  \item Identificação: O usuário que não estiver logado, será pedido que entre com seu e-mail e senha ou que registre para uma nova conta no site.
+  \item Informações: Nesta etapa será pedido ao usuário informações de contato, dados para envio, tipos e valores de envios e tipo de pagamento a ser utilizado.
+  \item Revisão: Todos os dados da compra são exibidos para o usuário conferir os dados.
+  \item Pagamento: Será requisitado os dados de pagamento ou haverá um redirecionamento para serviço de pagamento externo.
+  \item Completo: Uma mensagem será exibida com o status do pedido e outras informações pertinentes.
+\end{itemize}
+
+\subsection{Paypal}
+Por ser o método de pagamento mais utilizado mundialmente, o Paypal tem uma integração bem consolidada no Drupal 8 e o módulo Commerce. Por estas razões, ele será a única forma de pagamento para o site inicialmente. Idealmente, gostariamos que o pagamento pudesser ser feito por serviços brasileiros como PagSeguro e MercadoPago, mas a integração destes com o Commerce ainda não existe ou está em desenvolvimento para o Drupal 8.
+
+Para utilizar os serviços do Paypal, instalamos o módulo Commerce Paypal no nosso site, criamos uma conta no site do serviço e requerimos uma chave para sua API. Esta chave é utilizada pelo módulo Commerce para realizar o pagamento dos produtos sem sair do nosso sistema.
 
 % =========================================================================== %
 \section{Extendendo o Drupal}
