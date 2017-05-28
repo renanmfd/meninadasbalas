@@ -7,10 +7,8 @@
   /**
    * Activate carousel homepage.
    */
-  Drupal.behaviors.homepageCarousel = {
+  Drupal.behaviors.someBehavior = {
     attach: function (context) {
-      console.log('homepageCarousel');
-      //$('#banner .carousel').carousel();
     }
   };
 

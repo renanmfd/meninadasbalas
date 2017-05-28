@@ -79,6 +79,10 @@
   {{ title_prefix }}
   {{ title_suffix }}
 
+  {% if content.field_link[0] %}
+    <a href="{{ content.field_link[0]['#plain_text'] }}">
+  {% endif %}
+  
   <div class="image">
     {{ content.field_image }}
   </div>
@@ -91,8 +95,12 @@
     {% endif %}
 
     <div class="sumario">
-      {{ content|without('field_image') }}
+      {{ content.field_sumario }}
     </div>
   </div>
+
+  {% if content.field_link[0] %}
+    </a>
+  {% endif %}
 
 </article>
