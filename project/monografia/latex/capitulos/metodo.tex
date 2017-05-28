@@ -168,21 +168,54 @@ Para facilitar o desenvolvimento com Javascript e por ser um requerimento do Boo
 Para fechar o ambiente de front-end, utilizaremos o automatizador de tarefas Gulp e alguns pacotes de extenção que ele possúi. O Gulp e suas extenções são escritas em Javascript e executam em ambiente do NodeJS. Para instala-los, utilizamos o gerenciador de pacotes do NodeJS chamado Node Package Manager (NPM). Após instalar o NodeJS e o NPM, utilizamos os seguintes comandos para instalar o Gulp e seus pacotes.
 
 \TODO 
-#em qualquer pasta, para instalar o Gulp no sistema e poder utiliza-lo por linha de comando
+# Em qualquer pasta, para instalar o Gulp no sistema e poder utiliza-lo por linha de comando.
 $ npm install --global gulp
-#na pasta raiz do projeto, inicializamos o projeto npm.
+# Na pasta raiz do tema, inicializamos o projeto npm, que cria um arquivo `package.json` com os dados do projeto.
 $ npm init
-#agora instalamos os pacotes necessários
+# Agora instalamos alguns dos pacotes necessários.
 $ npm install --save-dev gulp gulp-less gulp-utils gulp-eslint
 \TODO comando \$
 
-TODO Gulp
+O Gulp é utilizado via código Javascript, onde utilizamos seus plugins para automatizar tarefas de front-end. As seguintes tarefas serão implementadas:
 
+\begin{itemize}
+  \item Less Hint - Ferramenta de análise de código LESS que ajuda na escrita limpa e consistente.
+  \item Less Compile - Compila o arquivo principal do LESS, o qual importa todos os outros e gera um CSS minificado e com sourcemap\TODO.
+  \item JS Lint - Análise de código JS para evitar estruturas inseguras e garantir que os padrões de código sejam seguidos.
+  \item JS Minification - Minificação dos arquivos de de Javascript para melhorar performance.
+  \item Image Minification - Minificação do arquivos de imagens do tema também para performance.
+  \item Favicon Creation - Criação de uma gama de arquivos de favicon, para que vários tipos de aplicativos, sistemas operacionais e programas tenham o favicon do tamanho correto, a partir de uma  única imagem.
+  \item Watch - Escaneia todos os arquivos do tema para mudanças e executa as tarefas especificas ao arquivo que mudou. Por exemplo, a cada vez que um arquivo de LESS for salvo, o arquivo principal é compilado e um novo CSS estará disponível, já com as mudanças salvas.
+\end{itemize}
+
+No anéxo 1, temos a lista dos pacotes do NodeJS utlizados e o arquivo de configuração do Gulp.
+
+% =========================================================================== %
+\section{Commerce}
+O Commerce é um modulo do Drupal para construção de lojas online que pode ser considerado como sendo um framework pelo tamanho e extensividade. Existem vários módulos que extendem o Commerce, adicionando funcionalidades, como por exemplo, diversos metodos de pagamento e serviços de entrega de produtos. Este módulo nos permite criar várias lojas, produtos, tipos de produtos e tipos de variantes de produtos.
+
+Nosso site terá apenas uma loja. Uma loja extra é necessária quando por exemplo os produtos são enviados de lugares diferentes e produtos deste lugares não podem estar juntos em um pedido, o que não é o nosso caso.
+
+Nosso único tipo de variante de produto será a bala de coco. Variantes
+
+No nosso e-commerce, teremos apenas uma variante de produto, a bala de coco, com dois tipos sendo bala tradicional e a bala recheada. Esta divisão se da porque temos uma característica diferente na recheada em relação a tradicional, como o próprio nome diz, o recheio. Para poderemos diferencia-las,  
+
+% =========================================================================== %
+\section{Extendendo o Drupal}
+
+Para continuar a construção das funcionalidades de back-end do site, iremos instalar alguns módulos.
+
+\subsection{}
+
+
+
+No anexo 2, temos uma lista de todos os módulos Drupal instalados com uma descrição das suas funcionalidades.
 
 % =========================================================================== %
 \section{Performance}
 
-TODO Agregação e minificação
+
+
 TODO Cache
 TODO Métodos de medição
 
