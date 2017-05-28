@@ -262,6 +262,7 @@ picture.icon:after {
   left: 0;
   width: 100%;
   padding: 50px 20px 10px 20px;
+  text-align: center;
   background-image: -webkit-linear-gradient(top, transparent 0%, rgba(255, 255, 255, 0.7) 50%);
   background-image: -o-linear-gradient(top, transparent 0%, rgba(255, 255, 255, 0.7) 50%);
   background-image: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.7) 50%);
@@ -269,11 +270,11 @@ picture.icon:after {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#b3ffffff', GradientType=0);
 }
 #banner .banner-title {
-  font-size: 26px;
+  font-size: 30px;
   color: #381774;
 }
 #banner .sumario {
-  font-size: 18px;
+  font-size: 22px;
   color: #000000;
 }
 #footer {
@@ -297,6 +298,76 @@ picture.icon:after {
 }
 #block-mbc-theme-footer h2 {
   color: #6431c1;
+}
+.article.teaser {
+  position: relative;
+  margin-bottom: 20px;
+}
+.article.teaser > .image-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+}
+.article.teaser > .content {
+  min-height: 100px;
+  margin-left: 150px;
+  padding-left: 20px;
+}
+.article.teaser h3 {
+  max-height: 25px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 25px;
+  overflow: hidden;
+}
+.article.teaser h3 span {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.article.teaser h3 a {
+  display: block;
+  text-decoration: none;
+  color: #6431c1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.article.teaser h3 a:hover {
+  color: #ff9d00;
+}
+.article.teaser .field--name-field-sumario {
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  word-wrap: break-word;
+  font-size: 16px;
+  color: #5c5c5c;
+}
+.article.teaser footer {
+  margin-top: 5px;
+  line-height: 20px;
+}
+.article.teaser .glyphicon {
+  margin-right: 10px;
+}
+.article.teaser .see-more {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #6431c1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.article.teaser .see-more:hover {
+  color: #ff9d00;
+}
+.article.teaser time {
+  color: #919191;
 }
 .product-card {
   width: 204px;
@@ -445,7 +516,7 @@ picture.icon:after {
   display: inline-block;
   vertical-align: inherit;
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   color: #919191;
 }
 .opiniao.teaser footer h3 {
@@ -470,7 +541,7 @@ picture.icon:after {
   text-align: center;
 }
 .review.teaser .content-wrapper .field--name-body p {
-  font-size: 20px;
+  font-size: 16px;
   color: #5c5c5c;
 }
 .review.teaser .content-wrapper footer {
@@ -525,6 +596,20 @@ picture.icon:after {
   padding-bottom: 0;
   border-bottom: none;
 }
+.view-home-reviews .views-row:nth-child(2n + 1) article {
+  direction: rtl;
+}
+.view-home-reviews .views-row:nth-child(2n + 1) article .product-image {
+  left: 0;
+  right: initial;
+}
+.view-home-reviews .views-row:nth-child(2n + 1) article .product-info {
+  margin-right: 0;
+  margin-left: 100px;
+  padding-left: 20px;
+  padding-right: 0;
+  text-align: left;
+}
 .path-frontpage .page-header {
   display: none;
 }
@@ -549,9 +634,11 @@ picture.icon:after {
   margin-bottom: 15px;
 }
 #block-views-block-produtos-block-1 .block-title a {
+  display: block;
   padding: 0 20px;
   color: #381774;
   line-height: 30px;
+  flex-grow: 100000000;
 }
 #block-views-block-produtos-block-1 .block-title span {
   display: block;
@@ -560,13 +647,21 @@ picture.icon:after {
   margin-top: 14px;
   margin-bottom: 15px;
   background-color: #381774;
+  flex-shrink: 1000000;
 }
 #block-views-block-home-reviews-block-1 .block-title {
   margin-top: 40px;
   margin-bottom: 20px;
-  padding-right: 300px;
   font-size: 36px;
   font-family: 'Lobster', cursive, serif;
+  text-align: center;
+  color: #381774;
+}
+#block-views-block-home-news-block-1 {
+  margin-top: 30px;
+}
+#block-views-block-home-news-block-1 h2 {
+  margin-bottom: 30px;
   text-align: center;
   color: #381774;
 }

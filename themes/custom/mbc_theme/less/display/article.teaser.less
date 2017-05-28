@@ -1,0 +1,73 @@
+// main: ../style.less
+
+.article.teaser {
+  position: relative;
+  margin-bottom: 20px;
+
+  > .image-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+    background-color: @color-gray-lower;
+  }
+  > .content {
+    min-height: 100px;
+    margin-left: 150px;
+    padding-left: 20px;
+  }
+
+  h3 {
+    max-height: 25px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 25px;
+    overflow: hidden;
+
+    span {
+      font-family: @main-font;
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      color: @color-primary;
+      .transition(all .3s ease-in-out);
+
+      &:hover {
+        color: @color-secondary;
+      }
+    }
+  }
+  .field--name-field-sumario {
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    word-wrap: break-word;
+    font-size: 16px;
+    color: @color-gray-high;
+  }
+  footer {
+    margin-top: 5px;
+    line-height: 20px;
+  }
+  .glyphicon {
+    margin-right: 10px;
+  }
+  .see-more {
+    margin-left: 20px;
+    text-decoration: none;
+    color: @color-primary;
+    .transition(all .3s ease-in-out);
+    
+    &:hover {
+      color: @color-secondary;
+    }
+  }
+  time {
+    color: @color-gray;
+  }
+}
