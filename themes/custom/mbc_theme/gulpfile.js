@@ -143,7 +143,7 @@ if (!String.prototype.startsWith) {
      * To use, type "gulp favicon" on the command line.
      */
     gulp.task('favicon', function () {
-        return gulp.src('./img/logo.*').pipe(favicons({
+        return gulp.src('./img/favicon.*').pipe(favicons({
             appName: 'Menina das Balas',
             appDescription: 'Website e-commerce for MeninaDasBalas',
             developerName: 'Renan Dias',
@@ -169,7 +169,7 @@ if (!String.prototype.startsWith) {
      */
     gulp.task('watch', function watchTask() {
         browserSync.init({
-            proxy: 'http://vagrant.baladecoco.com.br/'
+            proxy: 'http://local.meninadasbalas.com.br/'
         });
 
         gulp.watch('./less/**/*.less', ['less']);
