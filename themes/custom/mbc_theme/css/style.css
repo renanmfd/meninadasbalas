@@ -505,7 +505,7 @@ picture.icon:after {
   color: #bf7704;
 }
 .opiniao.teaser .content p {
-  font-size: 18px;
+  font-size: 16px;
   color: #5c5c5c;
   text-align: justify;
 }
@@ -516,7 +516,7 @@ picture.icon:after {
   display: inline-block;
   vertical-align: inherit;
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   color: #919191;
 }
 .opiniao.teaser footer h3 {
