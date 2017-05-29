@@ -1,23 +1,41 @@
 // out: ../css/style.css
 
+// Base Bootstrap variables and mixins.
 @import 'bootstrap/bootstrap';
 
-@import 'styles/variables';
+// Our project variables.
+@import 'variables';
+
+// General styles, valid for almost all pages.
 @import 'styles/general';
 @import 'styles/topbar';
 @import 'styles/navigation';
 @import 'styles/banner';
 @import 'styles/footer';
+@import 'styles/bottombar';
 
+// Display modes.
+@import 'display/article.full.less';
 @import 'display/article.teaser.less';
-@import 'display/product.card.less';
-@import 'display/product.review.less';
+@import 'display/opiniao.full.less';
 @import 'display/opiniao.teaser.less';
+@import 'display/product.card.less';
+@import 'display/product.full.less';
+@import 'display/product.review.less';
+@import 'display/review.full.less';
 @import 'display/review.teaser.less';
 
+// Pages.
+@import 'pages/cart.less';
+@import 'pages/checkout.less';
+@import 'pages/contact.less';
+@import 'pages/home.less';
+@import 'pages/list-article.less';
+@import 'pages/list-opiniao.less';
+@import 'pages/list-product.less';
+@import 'pages/list-review.less';
+
+// Views.
 @import 'views/produtos.less';
 @import 'views/homepage.less';
 @import 'views/reviews.less';
-
-@import 'pages/home.less';
-@import 'pages/cart.less';
