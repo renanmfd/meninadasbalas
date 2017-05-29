@@ -142,12 +142,14 @@ if (!String.prototype.startsWith) {
    * Image build.
    */
   gulp.task('img', function () {
-    return gulp.src('./img/*')
+    return gulp.src(['./img/original/*.jpg', './img/original/*.png'])
       .pipe(plumber(plumberOpt))
-      .pipe(cache(imageMin()))
-      .pipe(rename({
-        suffix: '.min'
-      }))
+      .pipe(imageMin([
+        imageMin.gifsicle(),
+        imageMin.jpegtran(), 
+        imageMin.optipng(),
+        imageMin.svgo()
+      ], {verbose: true}))
       .pipe(gulp.dest('./img/'));
   });
 
