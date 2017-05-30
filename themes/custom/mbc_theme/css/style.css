@@ -280,7 +280,6 @@ picture.icon:after {
 #footer {
   padding-top: 80px;
   padding-bottom: 40px;
-  margin-top: 40px;
   background-color: #2a2a2a;
 }
 #footer .menu {
@@ -301,6 +300,13 @@ picture.icon:after {
 }
 #block-mbc-theme-footer h2 {
   color: #6431c1;
+}
+#bottombar {
+  background-color: #000000;
+  text-align: right;
+}
+#bottombar > span {
+  color: #ffffff;
 }
 .article.teaser {
   position: relative;

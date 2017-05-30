@@ -1,0 +1,105 @@
+\chapter{Módulos Drupal}
+
+Neste capíluto temos uma lista de todos os módulos da comunidade Drupal que foram utilizados no projeto com sua funcionalidade, aplicação e algumas estatísticas\footnote{O número de instalações leva em consideração somente os sites onde o módulo do núcleo Update Status está instalado.}\footnote{Os números levam em conta todas as versões ainda suportadas do Drupal, atualmente 6, 7 e 8.} (retiradas da página oficial do módulo no \url{drupal.org}), em ordem alfabética.
+
+% =========================================================================== %
+\section{Address}
+Prove funcionalidades para guardar, validar e mostrar endereços postais internacionais.
+Este módulo foi criado pelo mesmo grupo de pessoas que fez o módulo Commerce e é uma requerimento para este ser instalado.
+
+\begin{center}
+  Downloads: 135,458 / Instalado em: 8,233 sites.
+  \url{https://www.drupal.org/project/address}
+\end{center}
+
+% =========================================================================== %
+\section{Admin Toolbar}
+Este é um módulo administrativo, que tem como objetivo melhorar o menu do administrador do site, adicionando funcionalidades e o transformando em um drop-down\footnote{Um menu drop-down ou menu suspenso é um elemento de interface com o não é similar a uma lista, que permite que o usuário escolha um valor de uma lista de opções que "cai para baixo".}, facilitando o acesso a todas as páginas administrativas do sistema.
+
+\begin{center}
+  Downloads: 338,103 / Instalado em: 42,668 sites.
+  \url{https://www.drupal.org/project/admin_toolbar}
+\end{center}
+
+% =========================================================================== %
+\section{Adminimal Admin Toolbar}
+Para resolver conflitos de tema que acontecem entre o módulo Admin Toolbar e o tema Adminimal Theme, este módulo é adicionado a lista. Ele não provê nenhuma funcionalidade extra.
+
+\begin{center}
+  Downloads: 42,182 / Instalado em: 5,274 sites.
+  \url{https://www.drupal.org/project/adminimal_admin_toolbar}
+\end{center}
+
+% =========================================================================== %
+\section{Advanced Aggregation}
+Este módulo vem com vários sub-módulos, cada um com uma funcionalidade diferente, mas todos com o mesmo objetivo, melhorar a performance do front-end do site. Utilizamos 3 sub-módulos:
+
+\begin{itemize}
+  \item Bundler - Combina vários arquivos do mesmo formato (JS ou CSS) em uma quantidade específica de arquivos, normalmente 4, para diminuir o número de requisições para se montar a página.
+  \item CSS Minify - Permite a minificação do CSS, utilizando o serviço de preferencia do administrador. No nosso caso, utilizamos YUI, um software livre e escrito em Java que já é instalado com módulo.
+  \item JS Minify - Assim como o anterior e com as mesmas configurações, faz minificação, desta vez dos arquivos de javascript.
+\end{itemize}
+
+\begin{center}
+  Downloads: 543,735 / Instalado em: 30,137 sites.
+  \url{https://www.drupal.org/project/advagg}
+\end{center}
+
+% =========================================================================== %
+\section{Auto Entity Label}
+A finalidade deste módulo é prover um método dar um título a entidades automaticamente através de tokens. Foi utilizado para nomear automaticamente os tipos de conteúdo Review e Opinião, para facilitar a criação pelos usuários, que não terão que pensar em um título.
+
+\begin{center}
+  Downloads: 135,151 / Instalado em: 22,035 sites.
+  \url{https://www.drupal.org/project/auto_entitylabel}
+\end{center}
+
+% =========================================================================== %
+\section{Blazy}
+Prove integração com a biblioteca PHP bLazy, que faz lazy-load das imagens para economizar largura de banda e requisisões no servidor. Os usuários experienciarão um carregamento mais rápido da página. Utilizamos esta funcionalidade em todas as imagens do site em todas as páginas, com exceção das carregadas pelo tema.
+
+\begin{center}
+  Downloads: 46,716 / Instalado em: 7,479 sites.
+  \url{https://www.drupal.org/project/blazy}
+\end{center}
+
+% =========================================================================== %
+\section{Commerce}
+As funcionalidades mais básica de um e-commerce são feitas por este módulo e seus sub-módulos. Construido mais como um framework que pode ser facilmente extendido. Os sub-módulos utilizados são:
+
+\begin{itemize}
+  \item Cart
+  \item Checkout
+  \item Log
+  \item Order
+  \item Payment
+  \item Price
+  \item Product
+  \item Store
+\end{itemize}
+
+\begin{center}
+  Downloads: 718,966 / Instalado em: 65,262 sites.
+  \url{https://www.drupal.org/project/commerce}
+\end{center}
+
+% =========================================================================== %
+\section{Commerce Paypal}
+Projeto de integração do Commerce com o método de pagamento PayPal. Suporta todos os tipos de pagamento oferecidos por este serviço e gerencia os dados a serem enviados e recebidos. Inicialmente, esta é a única forma de pagamento no nosso e-commerce.
+
+\begin{center}
+  Downloads: 155,728 / Instalado em: 20,967 sites.
+  \url{https://www.drupal.org/project/commerce_paypal}
+\end{center}
+
+% =========================================================================== %
+\section{Commerce Shipping}
+Este módulo adiciona ao fluxo de compras do módulo Commerce uma forma de entrega do produto, com calculo de frete e adicionando ao valor final. É utilizado como um framework para módulos de métodos de frete específicos como UPS, Correios e Fedex.
+
+\begin{center}
+  Downloads: 145,748 / Instalado em: 25,364 sites.
+  \url{https://www.drupal.org/project/commerce_shipping}
+\end{center}
+
+% =========================================================================== %
+

@@ -320,6 +320,27 @@ A principal ferramenta que iremos utilizar para medir a performance do site é o
 
 Como alternativa, usaremos também o serviço do Google chamado PageSpeed Insights, que com menos funcionalidades, faz esta mesma análise de boas práticas.
 
+
+% =========================================================================== %
+\section{Segurança}
+
+Utilizando um framework sólido e em constante melhora foi a principal decisão quando pensamos na segurança do e-commerce. O Drupal e o módulo Commerce cuidam de praticamente tudo para que possamos entregar um website seguro para os clientes.
+
+\subsection{Cuidados}
+Apesar disto, algumas precauções devem ser tomadas:
+
+\begin{itemize}
+  \item Evitar lógicas complicadas em templates TWIG e filtrar conteúdo vindo do usuário antes de mostrar na tela, para evitar \textit{Cross Site Scripting}\footnote{Cross-site scripting (XSS) é um tipo de vulnerabilidade do sistema de segurança de um computador, encontrado normalmente em aplicações web que activam ataques maliciosos ao injectarem client-side script dentro das páginas web vistas por outros usuários\cite{XSS}.}.
+  \item Utilizar as camadas de abstração de banco de dados para evitar ataques de \textit{SQL Injection}\footnote{A Injeção de SQL, mais conhecida através do termo americano SQL Injection, é um tipo de ameaça de segurança que se aproveita de falhas em sistemas que interagem com bases de dados via SQL\cite{SQLInjection}.}.
+  \item Garantir que as configurações do servidor e do site são as recomendadas pela comunidade Drupal, em \url{www.drupal.org/security/secure-configuration}.
+\end{itemize}
+
+\subsection{Certificado}
+Para garantir que os dados de compras do usuário e do site fiquem seguros, é de extrema importancia e uma necessidade tratando-se de um e-commerce, que tenhamos uma conexão encriptada. Para tal, temos que utilizar o protocolo de transferência HTTPS\footnote{Hyper Text Transfer Protocol Secure - protocolo de transferência de hipertexto seguro é uma implementação do protocolo HTTP sobre uma camada adicional de segurança que utiliza o protocolo SSL/TLS. Essa camada adicional permite que os dados sejam transmitidos por meio de uma conexão criptografada e que se verifique a autenticidade do servidor e do cliente por meio de certificados digitais.} em detrimento do mais comum HTTP\footnote{Hypertext Transfer Protocol, em português Protocolo de Transferência de Hipertexto, é um protocolo de comunicação utilizado para sistemas de informação na web\cite{HTTP}.} e comprar um certificado SSL\footnote{O protocolo SSL provê a privacidade e a integridade de dados entre duas aplicações que comuniquem pela internet\cite{SSL}.} para autenticação. Pagamos pelo certificado com 1 ano de validade o valor de R\$ 13,00 e mais um taxa de instalação no servidor para o HostGator de R\$ 60,00.
+
+Para completar, no servidor, colocaremos um código de configuração para quando um acesso ao site acontecer pelo protocolo HTTP, ele seja redirecionado para o HTTPS, garantindo a segurança em todos os casos.
+Além de ser um fator importante na segurança dos dados de um site, um certificado SSL é um fator levado em conta pelos mecanismos de busca.
+
 % =========================================================================== %
 \section{SEO}
 
@@ -364,5 +385,3 @@ Integração com redes sociais é quase um requerimento para websites de sucesso
 
 \subsection{Google Search Console}
 Por fim, cadastraremos o nosso e-commerce na ferramenta Search Console do Google. Esta nos permite ter um visão de como está a indexação do site, quais os termos que quandos buscados o site aparece melhor colocado, quais modificações podem ser feitas para melhorar o a posição das páginas na busca, quais página do site tem erros, entre outras. Ela se mostra extremamente importante para o acompanhamento de campanhas de marketing e de análise do SEO de forma geral.
-
-

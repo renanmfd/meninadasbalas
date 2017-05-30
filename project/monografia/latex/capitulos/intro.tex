@@ -55,9 +55,9 @@ Nem tudo é perfeito no mundo do e-commerce. Salvo excessões, estas são alguma
 % =========================================================================== %
 \section{Ambiente de Desenvolvimento}
 
-Existem várias maneiras de se criar um website, com várias linguagens e frameworks disponíveis. Linguagens como PHP, Ruby, Java e C# estão entre as linguagens mais utilizadas \cite{UsageStatistics}. Fazer um website simples do zero não é tarefa difícil. Porém no caso de um e-commerce, onde segurança e usabilidade são fatores chave para o sucesso do negócio, desenvolver em cima de camadas de software que já te proporciona muitas funcionalidades que serão essenciais, segurança contra ataques e falhas, além de uma comunidade de desenvolvedores que disponibiliza código e ajuda, faz desta a melhor opção. Mais adiante (!!!!!!!!colocar o capítulo!!!!!!!!), falaremos da escolha deste framework, quais eram as opções e o critério usado para a seleção.
+Existem várias maneiras de se criar um website, com várias linguagens e frameworks disponíveis. Linguagens como PHP, Ruby, Java e C# estão entre as linguagens mais utilizadas \cite{UsageStatistics}. Fazer um website simples do zero não é tarefa difícil. Porém no caso de um e-commerce, onde segurança e usabilidade são fatores chave para o sucesso do negócio, desenvolver em cima de camadas de software que já te proporciona muitas funcionalidades que serão essenciais, segurança contra ataques e falhas, além de uma comunidade de desenvolvedores que disponibiliza código e ajuda, faz desta a melhor opção. Mais adiante, falaremos da escolha deste framework, quais eram as opções e o critério usado para a seleção.
 
-Outra parte importante do desenvolvimento de um website é a escolha de um serviço de hosting. Servidores existem em várias partes do mundo e para sites de pequeno tráfego podemos encontrar por preços que vão de 100 reais por ano por um servidor compartilhado a 500 reais por ano uma maquina virtual exclusiva. A qualidade do servidor, sua conexão com a internet e localização física podem fazer muita diferença.
+Outra parte importante do desenvolvimento de um website é a escolha de um serviço de hosting\footnote{Hospedagem de Sites - é um serviço que possibilita a pessoas ou empresas com sistemas online a guardar informações, imagens, vídeo, ou qualquer conteúdo acessível por Web}. Servidores existem em várias partes do mundo e para sites de pequeno tráfego podemos encontrar por preços que vão de 100 reais por ano por um servidor compartilhado a 500 reais por ano uma maquina virtual exclusiva. A qualidade do servidor, sua conexão com a internet e localização física podem fazer muita diferença.
 
 Como mais um fator a se considerar, temos o domínio. Domínio é o endereço que o usuário vai usar no browser para utilizar o website. Alguns domínios podem ser contratados em websites especializados de graça, como por exemplo o domínio `.tk` no `site www.dot.tk`. Estes domínios tem pouca visibilidade nos motores de busca e tem pouca confiança dos usuários por não serem amplamente utilizados. No Brasil, os domínios com melhor visibilidade e confiança são o `.com.br` e o `.com`, que por um custo não muito elevado, por volta de 50 reais, podem ser contratados por um ano.
 
@@ -70,24 +70,25 @@ Outra parte esencial para o desenvolvimento de qualquer tipo software, principam
 
 Em aplicações web, temos código que executam tanto no servidor, quanto no cliente. O servidor é onde todas as informações estão guardadas em um banco de dados e o código que é executado nesta fase é chamado de back-end. Já no cliente, normalmente um browser, o código é geralmente para melhorar a experiência do usuário, mostrar as informações de forma mais clara, carregar informações dinamicamente sem mudar de página, fazer interações com o usuário e utilizar efeitos em elementos da página. Esta parte é chamada de front-end.
 
+No próximo capítulo, passaremos por todas as tecnologias utilizadas neste projeto, com uma breve explicação de seu objetivo e aplicação.
 
 % =========================================================================== %
 \section{SEO, Performance e Segurança}
 
 \subsection{Search Engine Optimization}
 
-Otimização para motores de busca (do inglês) são um conjunto de técnicas utilizadas em websites para melhorar o seu posicionamento em buscadores como o Google, Bing e Yahoo. Esta é uma parte essencial para a empresa que quer ter visibilidade na internet. Quanto mais próximo do topo em motores de busca, maior a chance de usuários clicarem no seu link e visitarem seu website. Hoje em dia existem empresas e proficionais especializados em SEO, dada a importância do assunto.
+Otimização para motores de busca (do inglês) são um conjunto de técnicas utilizadas em websites para melhorar o seu posicionamento em buscadores como o Google, Bing e Yahoo. Esta é uma parte essencial para a empresa que quer ter visibilidade na internet. Quanto mais próximo do topo em motores de busca, maior a chance de usuários clicarem no seu link e visitarem seu website. Hoje em dia existem empresas e proficionais especializados em SEO\sigla{Search Engine Optimization}, dada a importância do assunto.
 
 \subsection{Performance}
 
-O tempo de carregamento e de renderização de um website impactam muito na quantidade de usuários que ele vai reter. Segundo Shaun Anderson \cite{LoadTime}, SEO da empresa MBSA Marketing LTD, cada segundo a mais que um website demora para carregar, a taxa de abandono aumenta cerca de 6\%, chegando a 25\% após 4 segundos. Além da perda de potenciais clientes, sites com performance probre tem seu rankeamento prejudicado em motores de busca. Existem várias ferramentas e softwares que testam a velocidade e dão dicas para melhora-la, como por exemplo o PageSpeed Insights do Google e o YSlow do Yahoo.
+O tempo de carregamento e de renderização de um website impactam muito na quantidade de usuários que ele vai reter. Segundo Shaun Anderson\cite{LoadTime}, SEO da empresa MBSA Marketing LTD, cada segundo a mais que um website demora para carregar, a taxa de abandono aumenta cerca de 6\%, chegando a 25\% após 4 segundos. Além da perda de potenciais clientes, sites com performance probre tem seu rankeamento prejudicado em motores de busca. Existem várias ferramentas e softwares que testam a velocidade e dão dicas para melhora-la, como por exemplo o PageSpeed Insights do Google e o YSlow do Yahoo.
 
 \subsection{Segurança}
 
-Quando trabalhamos com cartões de crédito e informações confidenciais de clientes, temos que preocupar com a segurança destes dados. São quatro os principais fatores a se levar em consideração \cite{SecurityEcommerce}:
+Quando trabalhamos com cartões de crédito e informações confidenciais de clientes, temos que preocupar com a segurança destes dados. São quatro os principais fatores a se levar em consideração\cite{SecurityEcommerce}:
 
 \begin{itemize}
-  \item Privacidade: Todas as informações (!!!!!!!!!!!!!!!!!!)sensitivas dos clientes devem ser mantidas em bancos de dados seguros e longe do acesso de pessoas e empresas não autorizadas.
+  \item Privacidade: Todas as informações sensitivas dos clientes devem ser mantidas em bancos de dados seguros e longe do acesso de pessoas e empresas não autorizadas.
   \item Integridade: As informações dos clientes não devem ser modificadas ou adulteradas.
   \item Autenticação: Tanto o website quanto o cliente devem provar suas identidades um ao outro.
   \item Confirmação: É esperado que as informações trocadas sejam verificadas, para ter certeza que foram transmitidas e de forma correta.
@@ -96,5 +97,5 @@ Quando trabalhamos com cartões de crédito e informações confidenciais de cli
 % =========================================================================== %
 \section{O Cliente}
 
-A empresa Menina das Balas de Coco foi fundada 2010 na cidade de Itajubá, Minas Gerais. Seu produto principal e único é a bala de coco, doce típico brasileiro que costuma ser servido em festas de aniversário. O nome da empresa vem de como era conhecida a fundadora na faculdade, onde cursava Letras e vendia suas primeiras balas. A partir dai, foi-se aperfeiçoando as tecnicas de fabricação e melhorando o produto. Hoje a empresa tem mais de 20 sabores de balas que podem ter recheios diversos sabores, além da bala gelada e a original bala bombom, com cobertura de chocolate. Sua principal forma de vendas é por perfis em redes sociais.
+A empresa Menina das Balas de Coco foi fundada 2010 na cidade de Itajubá, Minas Gerais. Seu único produto é a bala de coco, doce típico brasileiro que costuma ser servido em festas de aniversário. O nome da empresa vem de como era conhecida a fundadora na faculdade, onde cursava Letras e vendia suas primeiras balas. A partir dai, foi-se aperfeiçoando as tecnicas de fabricação e melhorando o produto. Hoje a empresa tem mais de 20 sabores de bala de coco que podem ter recheios diversos sabores, além da bala gelada e a original bala bombom, com cobertura de chocolate. Suas principais formas de vendas são redes sociais, Mercado Livre e no loja física.
 
