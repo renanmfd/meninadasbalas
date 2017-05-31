@@ -25,7 +25,7 @@ Como dito anteriormente, temos muitas opções de servidores para instalarmos es
 Deste, foi escolhido o serviço da empresa Hostgator, por oferecer espaço e domínios ilimitados e o menor preço.
 
 \subsection{Domínio}
-Como também é um fator importante para SEO, foi sugerido ao cliente escolher um nome de domínio simples, facil de ser associado com a marca e com um top level domain (TLD ou domínio de nível superior) que dê credibilidade ao site como por exemplo o `.com` ou `.com.br`. No caso deste último, a indexação será melhor em uma busca nacional \cite{TLD}. Foi então combinado de usar o nome da empresa com o TLD mais utilizado, com mais de 90\% dos sites brasileiros \cite{RegistroBr}, ficando como a seguir:
+Como também é um fator importante para SEO\footnote{Search engine optimization - uma forma de aumentar os acessos do seu site através de um conjunto de técnicas e estratégias que permitem que um site melhore seu posicionamento nos resultados orgânicos dos mecanismos de busca, como Google e Bing\cite{SEO}.}, foi sugerido ao cliente escolher um nome de domínio simples, facil de ser associado com a marca e com um top level domain (TLD ou domínio de nível superior) que dê credibilidade ao site como por exemplo o `.com` ou `.com.br`. No caso deste último, a indexação será melhor em uma busca nacional \cite{TLD}. Foi então combinado de usar o nome da empresa com o TLD mais utilizado, com mais de 90\% dos sites brasileiros \cite{RegistroBr}, ficando como a seguir:
 
 \begin{figure}
   \centering
@@ -38,7 +38,7 @@ Comprado online na empresa GoDaddy \url{br.godaddy.com}, foi pago R\$ 44,99 por 
 % =========================================================================== %
 \section{Drupal}
 
-Como base para o o e-commerce utilizaremos o framework e gerenciador de conteúdo Drupal.  Este software foi criado em 2000 pelo estudante universitário belga Dries Buytaert para ser um pequeno gerenciador de postagem um blog. Mais tarde em 2001, o código deste sistema foi aberto ao público, com o intuito de permitir as pessoas pudessem realizar experimentos e construir extenções. Desde então, o número de usuários vem crescendo a cada ano e sua comunidade de desenvolvedores melhorando o código diarimente. Hoje o Drupal conta com mais de 37 mil extenções \cite{DrupalModules}, chamadas de módulos, com diversas funcionalidades e utilizando as mais novas tecnologias, além de mais de 2 mil temas \cite{DrupalTheme}.
+Como base para o o e-commerce utilizaremos o framework e gerenciador de conteúdo Drupal. Este software foi criado em 2000 pelo estudante universitário belga Dries Buytaert para ser um pequeno gerenciador de postagem um blog. Mais tarde em 2001, o código deste sistema foi aberto ao público, com o intuito de permitir as pessoas pudessem realizar experimentos e construir extenções. Desde então, o número de usuários vem crescendo a cada ano e sua comunidade de desenvolvedores melhorando o código diarimente. Hoje o Drupal conta com mais de 37 mil extenções \cite{DrupalModules}, chamadas de módulos, com diversas funcionalidades e utilizando as mais novas tecnologias, além de mais de 2 mil temas \cite{DrupalTheme}.
 
 Os motivos desta escolha são:
 
@@ -51,7 +51,7 @@ Os motivos desta escolha são:
 
 \subsection{Drupal 8}
 
-A versão estável mais recente do Drupal é a número 8 e será a utilizada no projeto. Comparada com a versão anterior, temos um sistema de cache muito mais potênte, módulos importantes adicionados ao núcleo, a mudança do sistema de templates de PHP para Twig, segurança reforçada e novas tecnologias e padrões sendo absorvidos. 
+A versão estável mais recente do Drupal é a número 8 e será a utilizada no projeto. Comparada com a versão anterior, temos um sistema de cache muito mais potênte, módulos importantes adicionados ao núcleo, a mudança do sistema de templates de PHP\footnote{Hypertext Preprocessor: Linguagem de script para servidores} para Twig\footnote{Linguagem para construção de templates HMTL.}, segurança reforçada e novas tecnologias e padrões sendo absorvidos. 
 
 \subsection{Núcleo}
 
@@ -71,12 +71,12 @@ Planejamos quatro tipos de conteúdo:
 Poderiamos considerar o produto também um conteúdo, mas como veremos adiante, este é uma entidade a parte, criada por um módulo da comunidade.
 
 \subsubsection{Taxonomy}
-Já pensando nos produtos, criaremos um vocabulário de taxonomia, que é uma lista de keywords utilizadas para organizar o conteúdo do site. Estas keywords serão os sabores de balas que a empresa fabrica e serão atrelados a cada produto, para facilitar a posterior filtragem e exibição destes.
+Já pensando nos produtos, criaremos um vocabulário de taxonomia\footnote{Taxonomia é a ciência de classificar itens.}, que é uma lista de keywords utilizadas para organizar o conteúdo do site. Estas \textit{keywords} serão os sabores de balas que a empresa fabrica e serão atrelados a cada produto, para facilitar a posterior filtragem e exibição destes.
 
 \subsubsection{Views}
-Modo mais comum de exibir grupos de conteúdo no Drupal, o módulo Views é um dos que na versão anterior não eram parte core e por sua importancia foi incorporado. Ele permite filtragem e ordenação por valores de propriedades e a exibição de um número específico de conteúdos. 
+Modo mais comum de exibir grupos de conteúdo no Drupal, o módulo Views é um dos que na versão anterior não eram parte do núcleo do sistema e por sua importancia foi incorporado. Ele permite filtragem e ordenação de conteúdo por valores de propriedades e a exibição dos item resultantes. 
 
-Com ele, faremos os blocos de baners, reviews, notícias, produtos e opiniões da homepage.
+Com ele, faremos os blocos de baners, \textit{reviews}, notícias, produtos e opiniões da \textit{homepage}a.
 \begin{itemize}
   \item Baner: Os 3 conteúdos do tipo baner em formato de carrosel automático.
   \item Notícias: As 3 notícias mais recentes postadas.
@@ -108,7 +108,7 @@ Com o framework escolhido, vamos construir o ambiênte de desenvolvimento.
 \subsection{Sistemas Operacinais e Maquina Virtual} 
 Utilizarei o sistema operacional Ubuntu 16.04 e esporadicamente OSX El Capitan para desenvolvimento local e no servidor temos um CentOS 6. Para evitar problemas de compatibilidade como dito no capítulo de introdução, utilisaremos para desenvolvimento local uma maquina virtual (VM) com as mesmas configurações do servidor. O gerenciamento e configuração desta será feita por um software especializado chamado Vagrant.
 
-Será usada uma configuração pré-definida criada por Jeff Geerling \url{www.drupalvm.com/}, Arquiteto Drupal, especificamente para o Drupal, onde o Vagrant cria uma maquina virtual e a configura especificamente para Drupal, com todos os programas e ferramentas que serão necessárias para o desenvolvimento. Alteramos somentes os pontos onde temos que imitar o servidor Hostgator, que é a versão dos softwares Apache2 e MySQL e a versão da linguagem PHP. Isso já nos garante o funcionamento estável e previsivel do nosso site em todos os ambiêntes que ele estiver instalado.
+Será usada uma configuração pré-definida criada por Jeff Geerling \url{www.drupalvm.com/}, Arquiteto Drupal, onde o Vagrant cria uma maquina virtual e a configura, com todos os programas e ferramentas que serão necessárias para o desenvolvimento neste framework. Alteramos somentes os pontos onde temos que imitar o servidor Hostgator, que é a versão dos softwares Apache2 e MySQL e a versão da linguagem PHP. Isso já nos garante o funcionamento estável e previsivel do nosso site em todos os ambiêntes que ele estiver instalado.
 
 \subsection{Apache, PHP e MySQL}
 Apesar do Drupal funcionar com vários softwares de servidores web, como Nginx e Hiawatha, o mais utilizado é o Apache2. Além disso, nosso servidor também roda Apache2 2.2.25, então este é a escolha inevitável. 
