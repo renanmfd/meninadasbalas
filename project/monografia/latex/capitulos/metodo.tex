@@ -128,10 +128,11 @@ Iremos utilizar o software gerenciador de pacotes Composer para instalar o Drupa
 
 A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 
-Porém, um problema foi detectado no uso deste pacote. O Drupal é instalado em um sub-diretório do projeto e não na raiz. Isso nos impede de utilizar o domínio principal quando o site for instalado no servidor, pois os arquivos tem que estar na raiz do diretório. Para resolver isto, criamos uma fork\footnote{É uma cópia do repositório que permite modificações e experimentos sem mundanças no repositório original.} \url{https://github.com/renanmfd/drupal-project} deste projeto no Github e modifiquei todos os códigos e configurações para instalar o Drupal no diretório raíz. Esta fork foi carregada no site Packagist \url{https://packagist.org} para ficar disponível para \textit{download} via Composer, pela URL \url{https://packagist.org/packages/renanmfd/drupal-project}.
+Porém, um problema foi detectado no uso deste pacote. O Drupal é instalado em um sub-diretório do projeto e não na raiz. Isso nos impede de utilizar o domínio principal quando o site for instalado no servidor, pois os arquivos tem que estar na raiz do diretório. Para resolver isto, criamos uma fork\footnote{É uma cópia do repositório que permite modificações e experimentos sem mundanças no repositório original.} \url{https://github.com/renanmfd/drupal-project} deste projeto no Github e modifiquei todos os códigos e configurações para instalar o Drupal no diretório raíz. Esta fork foi carregada no site Packagist \url{https://packagist.org} para ficar disponível para \textit{download} via Composer, com o comando:
 
 \begin{lstlisting}
-  composer create-project drupal-composer/drupal-project:8.x-dev meninadasbalas --stability dev --no-interaction
+  composer create-project drupal-composer/drupal-project:8.x-dev 
+    meninadasbalas --stability dev --no-interaction
 \end{lstlisting}
 
 Com o problema sanado, podemos dar incio ao processo de instalação do Drupal e logo após a fase de codificação do projeto.
