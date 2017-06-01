@@ -1,0 +1,18 @@
+// Declaring variables
+@border-width: 1px;
+@red: #842210;
+// Declaring mixin
+.box(@size) {
+  display: inline-block;
+  width: @size;
+  height: @size;
+}
+// Using variables
+div#header {
+  border: @border-width solid @red;
+  .box(10rem);
+
+  span {
+    .box(15px);
+  }
+}
