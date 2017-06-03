@@ -22,3 +22,9 @@ project/monografia/build/
 
 # Server
 extra/
+
+# Local SSL files
+*.key
+*.csr
+*.crt
+*.org
