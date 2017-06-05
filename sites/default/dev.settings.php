@@ -88,8 +88,8 @@
  */
  $databases['default']['default'] = array (
   'database' => 'meninadasbalas',
-  'username' => 'root',
-  'password' => 'res2res2',
+  'username' => 'meninadasbalas',
+  'password' => 'meninadasbalas',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',

@@ -4,11 +4,13 @@
   .page-header {
     display: none;
   }
+  .views-element-container.form-group {
+    margin-bottom: 0;
+  }
 }
 
 #block-views-block-produtos-block-1 {
-  position: relative;
-  padding: 50px 0;
+  .homepage-block();
 
   &:before {
     content: '';
@@ -21,17 +23,16 @@
     background-color: @color-secondary-lower;
   }
   .block-title {
+    .block-title();
     position: relative;
     display: flex;
-    margin-top: 0;
-    margin-bottom: 15px;
 
     a {
       display: block;
-      padding: 0 20px;
-      color: @color-primary-high;
+      padding-left: 20px;
+      padding-right: 20px;
       line-height: 30px;
-      flex-grow: 100000000;
+      flex-grow: 1000000;
     }
     span {
       display: block;
@@ -46,22 +47,18 @@
 }
 
 #block-views-block-home-reviews-block-1 {
-  .block-title {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 36px;
-    font-family: @sec-font;
+  .homepage-block();
+  margin-bottom: 40px;
 
+  .block-title {
     .block-title();
   }
 }
 
 #block-views-block-home-news-block-1 {
-  margin-top: 30px;
+  .homepage-block();
   
-  h2 {
-    margin-bottom: 30px;
-    
+  .block-title {
     .block-title();
   }
 }

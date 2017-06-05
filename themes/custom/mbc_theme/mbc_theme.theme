@@ -81,3 +81,7 @@ function mbc_theme_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+function mbc_theme_menu_links_discovered_alter(&$vars) {
+  ksm($vars);
+}

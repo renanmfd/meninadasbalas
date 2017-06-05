@@ -8,33 +8,31 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 150px;
-    height: 100px;
+    width: 180px;
+    height: 120px;
     overflow: hidden;
     background-color: @color-gray-lower;
   }
   > .content {
-    min-height: 100px;
-    margin-left: 150px;
+    min-height: 120px;
+    margin-left: 180px;
     padding-left: 20px;
   }
 
   h3 {
-    max-height: 25px;
+    max-height: 50px;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     line-height: 25px;
     overflow: hidden;
 
     span {
-      font-family: @main-font;
       font-size: 22px;
-      text-transform: uppercase;
     }
     a {
       display: block;
       text-decoration: none;
-      color: @color-primary;
+      color: @color-primary-high;
       .transition(all .3s ease-in-out);
 
       &:hover {
@@ -43,7 +41,7 @@
     }
   }
   .field--name-field-sumario {
-    height: 40px;
+    max-height: 40px;
     line-height: 20px;
     overflow: hidden;
     word-wrap: break-word;
@@ -60,7 +58,7 @@
   .see-more {
     margin-left: 20px;
     text-decoration: none;
-    color: @color-primary;
+    color: @color-primary-high;
     .transition(all .3s ease-in-out);
     
     &:hover {

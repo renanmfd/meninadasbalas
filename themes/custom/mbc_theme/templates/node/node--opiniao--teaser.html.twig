@@ -86,11 +86,11 @@
   {{ title_suffix }}
 
   <div{{ content_attributes.addClass('content') }}>
-    {{ content }}
+    {{ content|without('field_user') }}
   </div>
 
   <footer>
-    <h3>{{ author_name }}</h3>
+    <h3>{{ content.field_user }}</h3>
     <span>em {{ node.createdtime|date("d/m/Y") }}</span>
   </footer>
 

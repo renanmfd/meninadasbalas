@@ -2,6 +2,6 @@ global-styling:
   css:
     theme:
       css/style.min.css: {minified: true}
-      https://fonts.googleapis.com/css?family=Lobster|Ubuntu: {type: external}
+      https://fonts.googleapis.com/css?family=Architects+Daughter|Open+Sans:300,400,400i,700: {type: external}
   js:
     js/home.min.js: {minified: true}

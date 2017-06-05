@@ -11,7 +11,7 @@ if (!String.prototype.startsWith) {
 }
 
 /**
- * @author Tursites / Renan
+ * @author Renan Dias <renanmfd@gmail.com>
  *
  * GULP
  * -- CSS
@@ -186,7 +186,7 @@ if (!String.prototype.startsWith) {
    */
   gulp.task('watch', function watchTask() {
     browserSync.init({
-      proxy: 'http://local.meninadasbalas.com.br/'
+      proxy: 'http://meninadasbalas.dev/'
     });
 
     gulp.watch('./less/**/*.less', ['less']);
