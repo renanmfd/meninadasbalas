@@ -5,3 +5,4 @@ global-styling:
       https://fonts.googleapis.com/css?family=Architects+Daughter|Open+Sans:300,400,400i,700: {type: external}
   js:
     js/home.min.js: {minified: true}
+    js/product-list.min.js: {minified: true}

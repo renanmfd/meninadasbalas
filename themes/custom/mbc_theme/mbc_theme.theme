@@ -6,6 +6,8 @@
  * Place your custom PHP code in this file.
  */
 
+use \Drupal\Core\Form\FormStateInterface;
+
 /**
  * Custom function to get SVG icons with fallback, assisted by a template.
  */
@@ -82,6 +84,12 @@ function mbc_theme_theme($existing, $type, $theme, $path) {
   ];
 }
 
-function mbc_theme_menu_links_discovered_alter(&$vars) {
-  ksm($vars);
+/**
+ * Implements hook_form_alter().
+ */
+function mbc_theme_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'views_exposed_form') {
+    $form['recheio']['#type'] = 'checkboxes';
+    $form['sabor']['#type'] = 'checkboxes';
+  }
 }

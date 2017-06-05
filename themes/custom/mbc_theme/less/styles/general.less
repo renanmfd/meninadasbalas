@@ -48,6 +48,27 @@ picture.icon {
   }
 }
 
+.pager-nav {
+  ul {
+    a {
+      background-color: @color-primary;
+      color: @color-white;
+      border: 1px solid @color-white !important;
+      
+      &:hover {
+        background-color: @color-primary-low;
+        color: @color-white;
+      }
+    }
+    .is-active {
+      a {
+        background-color: @color-primary-high;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
 .block-title() {
   margin-top: 0;
   margin-bottom: 20px;
