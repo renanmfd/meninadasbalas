@@ -1,6 +1,6 @@
 BASEPATH=${PWD};
-MYSQL_USER="root"
-MYSQL_PSWD="res2res2"
+MYSQL_USER="meninadasbalas"
+MYSQL_PSWD="meninadasbalas"
 MYSQL_TABLE="meninadasbalas"
 SITENAME=$MYSQL_TABLE;
 DATE=$(date "+%Y-%m-%d-%H-%M-%S")
