@@ -89,7 +89,11 @@ function mbc_theme_theme($existing, $type, $theme, $path) {
  */
 function mbc_theme_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id == 'views_exposed_form') {
-    $form['recheio']['#type'] = 'checkboxes';
-    $form['sabor']['#type'] = 'checkboxes';
+    if (isset($form['recheio'])) {
+      $form['recheio']['#type'] = 'checkboxes';
+    }
+    if (isset($form['sabor'])) {
+      $form['sabor']['#type'] = 'checkboxes';
+    }
   }
 }

@@ -1,2 +1,37 @@
 // main: ../style.less
 
+.path-noticias {
+  .region-sidebar-second {
+    @media (max-width: @screen-xs-max) {
+      display: none;
+    }
+
+    .view-content {
+      display: block;
+      
+      .views-row {
+        margin-bottom: 20px;
+      }
+    }
+    .product-card {
+      margin-right: 0;
+
+      .product-image {
+        position: absolute;
+        
+        img { .opacity(0.5) }
+      }
+      .product-info {
+        position: relative;
+        z-index: 1;
+        background-color: transparent;
+      }
+      .product-addtocart {
+        position: relative;
+        z-index: 123;
+        
+        form { margin: -30px 0 0 0; }
+      }
+    }
+  }
+}

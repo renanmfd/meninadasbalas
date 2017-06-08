@@ -173,6 +173,15 @@
           </aside>
         {% endblock %}
       {% endif %}
+
+      {# Bellow Content #}
+      {% if page.bellow_content %}
+        {% block bellow_content %}
+          <div class="col-sm-12">
+            {{ page.bellow_content }}
+          </div>
+        {% endblock %}
+      {% endif %}
     </div>
   </main>
 {% endblock %}

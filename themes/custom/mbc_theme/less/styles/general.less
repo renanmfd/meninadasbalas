@@ -1,5 +1,4 @@
 // main: ../style.less
-
 * {
   font-family: @main-font;
 }
@@ -8,7 +7,6 @@ h1,
 h2,
 h3 {
   font-family: @sec-font;
-  
   * {
     font-family: @sec-font;
   }
@@ -23,7 +21,6 @@ body {
 picture.icon {
   display: block;
   font-size: 0;
-
   .clearfix();
 }
 
@@ -38,13 +35,13 @@ picture.icon {
     color: @color-primary-high;
     border-bottom: 2px solid @color-primary-high;
   }
-
   .breadcrumb {
     margin-top: 40px;
     position: absolute;
     top: 0;
     right: 0;
     padding-top: 15px;
+    background-color: transparent;
   }
 }
 
@@ -54,7 +51,6 @@ picture.icon {
       background-color: @color-primary;
       color: @color-white;
       border: 1px solid @color-white !important;
-      
       &:hover {
         background-color: @color-primary-low;
         color: @color-white;
@@ -69,15 +65,17 @@ picture.icon {
   }
 }
 
+.btn {
+  border-radius: 0 !important;
+}
+
 .block-title() {
   margin-top: 0;
   margin-bottom: 20px;
   text-align: center;
-
   font-size: 30px;
   font-family: @sec-font;
   color: @color-primary-high;
-
   * {
     font-size: 36px;
     font-family: @sec-font;
@@ -91,7 +89,6 @@ picture.icon {
   border-radius: 0;
   color: @color-white;
   .transition(all .3s ease-in-out);
-
   &:hover {
     background-color: @color-secondary-high;
   }
@@ -113,4 +110,38 @@ picture.icon {
   position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.checkboxes() {
+  position: relative;
+
+  > .form-item {
+    padding-top: 5px;
+  }
+  input[type=checkbox] {
+    display: none;
+  }
+  input[type=checkbox] + span {
+    line-height: 20px;
+    font-size: 16px;
+    
+    &:before {
+      content: "\e157";
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      margin-right: 5px;
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+  input[type=checkbox]:checked + span {
+    &:before {
+      content: "\e067";
+    }
+  }
 }

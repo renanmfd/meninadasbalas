@@ -1,1 +1,35 @@
 // main: ../style.less
+
+.path-checkout {
+  .layout-region {
+    margin-bottom: 20px;
+  }
+  .panel {
+    margin-bottom: 20px;
+    border: 1px solid @color-primary;
+    
+    .panel-heading {
+      background-color: @color-primary-low;
+      color: @color-primary-higher;
+      
+      .panel-title {
+        font-family: @sec-font;
+        font-size: 22px;
+        
+        a {
+          font-family: @sec-font;
+          color: @color-primary-high;
+        }
+      }
+    }
+  }
+  .form-submit {
+    .primary-button();
+  }
+  .form-item-payment-information-payment-method {
+    label > span {
+      display: block;
+      margin: -30px 0 20px 10px;
+    }
+  }
+}

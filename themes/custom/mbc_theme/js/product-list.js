@@ -9,12 +9,17 @@
    */
   Drupal.behaviors.ajaxAutomaticSumit = {
     attach: function (context) {
-      console.log('ajaxAutomaticSumit', $('.views-exposed-form input.form-checkbox'));
-      $('.views-exposed-form input.form-checkbox').change( 
-        function () {
-          $(this).parents('form').submit();
-        }
-      );
+      $('.views-exposed-form')
+        .find('input.form-checkbox, select.form-select')
+        .change( 
+          function () {
+            $(this)
+              .parents('form')
+              .submit();
+              //.find('#edit-submit-list-products')
+              //.click();
+          }
+        );
     }
   };
 
