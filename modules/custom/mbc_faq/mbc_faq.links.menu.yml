@@ -1,0 +1,29 @@
+mbc_faq.description:
+  title: MBC FAQ
+  description: Overview of all FAQ Questions with operations.
+  route_name: mbc_faq.description
+  parent: system.admin_config_content
+
+mbc_faq.list:
+  title: List Itens
+  description: Overview of all FAQ Questions with operations.
+  route_name: mbc_faq.description
+  parent: mbc_faq.description
+
+mbc_faq.add:
+  title: Add Item
+  description: Add new FAQ Q&A form.
+  route_name: mbc_faq.add
+  parent: mbc_faq.description
+
+mbc_faq.group:
+  title: Groups
+  description: Overview of all FAQ Groups with operations.
+  route_name: mbc_faq.group
+  parent: mbc_faq.description
+
+mbc_faq.group.add:
+  title: Add Group
+  description: Add new FAQ Group form.
+  route_name: mbc_faq.group.add
+  parent: mbc_faq.group

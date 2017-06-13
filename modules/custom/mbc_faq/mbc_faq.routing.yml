@@ -1,0 +1,71 @@
+mbc_faq.faq:
+  path: 'faq'
+  defaults:
+    _controller: '\Drupal\mbc_faq\Controller\PageFAQ::content'
+    _title: 'FAQ'
+  requirements:
+    _permission: 'view content'
+
+mbc_faq.description:
+  path: 'admin/config/mbc-faq'
+  defaults:
+    _controller: '\Drupal\mbc_faq\Controller\Overview::faq_list'
+    _title: 'List FAQ'
+  requirements:
+    _permission: 'administer mbc_faq'
+
+mbc_faq.add:
+  path: 'admin/config/mbc-faq/add'
+  defaults:
+    _form: '\Drupal\mbc_faq\Form\AddFAQ'
+    _title: 'Add FAQ'
+  requirements:
+    _permission: 'create mbc_faq'
+
+mbc_faq.edit:
+  path: 'admin/config/mbc-faq/{faq_id}/edit'
+  defaults:
+    _form: '\Drupal\mbc_faq\Form\EditFAQ'
+    _title: 'Edit FAQ'
+  requirements:
+    _permission: 'edit mbc_faq'
+
+mbc_faq.delete:
+  path: 'admin/config/mbc-faq/{faq_id}/delete'
+  defaults:
+    _form: '\Drupal\mbc_faq\Form\DeleteFAQ'
+    _title: 'Delete FAQ'
+  requirements:
+    _permission: 'delete mbc_faq'
+
+mbc_faq.group:
+  path: 'admin/config/mbc-faq/group'
+  defaults:
+    _controller: '\Drupal\mbc_faq\Controller\Overview::faq_group_list'
+    _title: 'List FAQ Group'
+  requirements:
+    _permission: 'administer mbc_faq groups'
+
+mbc_faq.group.add:
+  path: 'admin/config/mbc-faq/group/add'
+  defaults:
+    _form: '\Drupal\mbc_faq\Form\AddGroupFAQ'
+    _title: 'Add FAQ Group'
+  requirements:
+    _permission: 'administer mbc_faq groups'
+
+mbc_faq.group.edit:
+  path: 'admin/config/mbc-faq/group/{group_id}/edit'
+  defaults:
+    _form: '\Drupal\mbc_faq\Form\EditGroupFAQ'
+    _title: 'Edit FAQ Group'
+  requirements:
+    _permission: 'administer mbc_faq groups'
+
+mbc_faq.group.delete:
+  path: 'admin/config/mbc-faq/group/{group_id}/delete'
+  defaults:
+    _form: '\Drupal\mbc_faq\Form\DeleteGroupFAQ'
+    _title: 'Delete FAQ Group'
+  requirements:
+    _permission: 'administer mbc_faq groups'

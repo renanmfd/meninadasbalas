@@ -1,0 +1,5 @@
+services:
+  mbc_faq.faq_operations:
+    class: Drupal\mbc_faq\Services\FAQOperations
+  mbc_faq.group_operations:
+    class: Drupal\mbc_faq\Services\GroupOperations

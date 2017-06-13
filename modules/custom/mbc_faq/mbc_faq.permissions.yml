@@ -1,0 +1,23 @@
+administer mbc_faq:
+  description: 'Administer MBC FAQ integration settings'
+  title: 'Administer MBC FAQ'
+
+create mbc_faq:
+  description: 'Create MBC FAQ integration settings'
+  title: 'Create MBC FAQ'
+
+edit mbc_faq:
+  description: 'Edit MBC FAQ integration settings'
+  title: 'Edit MBC FAQ'
+
+delete mbc_faq:
+  description: 'Delete MBC FAQ integration settings'
+  title: 'Delete MBC FAQ'
+
+view mbc_faq:
+  description: 'View MBC FAQ integration settings'
+  title: 'View MBC FAQ'
+
+administer mbc_faq groups:
+  description: 'Administer MBC FAQ groups integration settings'
+  title: 'Administer MBC FAQ Groups'

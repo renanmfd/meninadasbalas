@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function mbc_faq_schema() {
+  $schema['mbc_faq_faq'] = [
+    'description' => 'FAQ Item',
+    'fields' => [
+      'faq_id' => [
+        'description' => 'The primary identifier for a FAQ.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'question' => [
+        'description' => 'Question of the FAQ item.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+      'answer' => [
+        'description' => 'Answer of question of the FAQ item.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+      'group_id' => [
+        'description' => 'Group of the FAQ item.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'description' => 'Date when the FAQ item was created.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'user' => [
+        'description' => 'User that created this FAQ item.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['faq_id'],
+  ];
+
+  $schema['mbc_faq_group'] = [
+    'description' => 'FAQ Group',
+    'fields' => [
+      'group_id' => [
+        'description' => 'The primary identifier for the FAQ group.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'group' => [
+        'description' => 'FAQ group name.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['group_id'],
+  ];
+
+  return $schema;
+}

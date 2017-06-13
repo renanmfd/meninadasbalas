@@ -1,0 +1,5 @@
+name: MBC FAQ
+type: module
+description: 'Frequently asked questions feature and ui'
+core: 8.x
+package: MBC

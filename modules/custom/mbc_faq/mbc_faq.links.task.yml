@@ -1,0 +1,18 @@
+mbc_faq.description:
+  title: List FAQ
+  route_name: mbc_faq.description
+
+mbc_faq.add:
+  title: Add FAQ
+  route_name: mbc_faq.add
+  base_route: mbc_faq.description
+
+mbc_faq.group:
+  title: List FAQ Group
+  route_name: mbc_faq.group
+  base_route: mbc_faq.description
+
+mbc_faq.group.add:
+  title: Add FAQ Group
+  route_name: mbc_faq.group.add
+  base_route: mbc_faq.group
